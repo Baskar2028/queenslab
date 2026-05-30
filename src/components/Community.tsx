@@ -20,7 +20,7 @@ const members = [
     image:founderImg2,
     href:"/developer",
     desc:"Skilled in Programming Languages C , C++ ,Python , Java,JavaScript,ReactJs , MongoDB |  frameworks : Bootstrap , Nodejs | APIs",
-    skills:["C","C++","Java","Python","JavaScript","NodeJs","MongoDB","APIS","Linux"],
+    skills:["C","C++","Java","Python","JavaScript","React","NodeJs","MongoDB","APIS","Linux"],
   },
   {
     name: "Rishikesh Ragav",
