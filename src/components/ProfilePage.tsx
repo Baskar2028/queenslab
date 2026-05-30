@@ -59,14 +59,14 @@ const ProfilePage = ({ name, role, image, intro, paraTwo, paraThree }: ProfilePa
               </h1>
             </div>
 
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">{intro}</p>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">{intro}</p>
 
             <div className="h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
 
-            <p className="text-muted-foreground text-base leading-relaxed">{paraTwo}</p>
+            <p className="text-muted-foreground text-base leading-relaxed text-justify">{paraTwo}</p>
 
             <div className="glass-card rounded-2xl p-5 border-l-4 border-accent">
-              <p className="text-foreground/90 text-base leading-relaxed italic">"{paraThree}"</p>
+              <p className="text-foreground/90 text-base leading-relaxed italic text-justify">"{paraThree}"</p>
             </div>
 
             <div className="flex flex-wrap gap-4 pt-2">

@@ -3,21 +3,30 @@ import { Link } from "react-router-dom";
 import { UserCircle2, ArrowUpRight } from "lucide-react";
 import founderImg from "@/assets/founder.jpeg";
 import cofounderImg from "@/assets/cofounder.png";
+import founderImg2 from "@/assets/cofounder.jpeg"
 
 const members = [
   {
     name: "Baskar",
-    role: "Founder",
+    role: "Developer",
     image: founderImg,
-    href: "/founder",
-    desc: "Skilled in programming languages C, C++, Python, Java, JavaScript, React JS, MySQL, frameworks, Tailwind CSS, Flask, APIs, and Networking (Linux).",
+    href: "/leaddeveloper",
+    desc: "Skilled in programming languages C, C++, Python, Java, JavaScript, React JS, MySQL | frameworks: Tailwind CSS, Flask |  APIs and Networking ,Linux.",
     skills: ["C", "C++", "Python", "Java", "JavaScript", "React", "MySQL", "Tailwind", "Flask", "APIs", "Linux"],
   },
   {
+    name:"Deepak",
+    role:"Developer",
+    image:founderImg2,
+    href:"/developer",
+    desc:"Skilled in Programming Languages C , C++ ,Python , Java,JavaScript,ReactJs , MongoDB |  frameworks : Bootstrap , Nodejs | APIs",
+    skills:["C","C++","Java","Python","JavaScript","NodeJs","MongoDB","APIS","Linux"],
+  },
+  {
     name: "Rishikesh Ragav",
-    role: "Co-Founder",
+    role: "DevOps & QA Enginner",
     image: cofounderImg,
-    href: "/cofounder",
+    href: "/tester",
     desc: "Skilled in Wireshark, Nmap, HTTP/DNS traffic analysis, port scanning, network reconnaissance, and programming in JavaScript, C, and Python.",
     skills: ["Wireshark", "Nmap", "HTTP/DNS", "Port Scanning", "Recon", "JavaScript", "C", "Python"],
   },
@@ -45,7 +54,7 @@ const Community = () => {
         </h2>
         <div className="w-16 h-1 bg-accent mx-auto rounded-full mb-14" />
 
-        <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
           {members.map((m, i) => (
             <Link
               to={m.href}

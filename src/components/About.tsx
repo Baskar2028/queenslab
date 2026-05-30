@@ -25,7 +25,7 @@ const About = () => {
 
         <div className="grid lg:grid-cols-2 gap-10 items-stretch">
           {/* Left: paragraph */}
-          <div className="glass-card rounded-2xl p-8 md:p-10 text-muted-foreground text-base md:text-lg leading-relaxed space-y-5">
+          <div className="glass-card rounded-2xl p-8 md:p-10 text-muted-foreground text-base md:text-lg leading-relaxed space-y-5 text-justify">
             <p>
               <span className="text-foreground font-medium">Queen's Lab</span> is a digital development studio focused on building impactful, modern and premium web solutions for ambitious brands and growing startups around the world.
             </p>
@@ -42,17 +42,17 @@ const About = () => {
             <div className="glass-card rounded-2xl p-6 hover:border-accent/30 transition-colors">
               <Eye className="w-8 h-8 text-accent mb-3" />
               <h3 className="font-heading font-semibold text-foreground mb-2">Vision</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">To become a global studio known for premium, future-ready web apps and provide solutions for various real world problems.</p>
+              <p className="text-sm text-muted-foreground leading-relaxed text-justify">To become a global studio known for premium, future-ready web apps and provide solutions for various real world problems.</p>
             </div>
             <div className="glass-card rounded-2xl p-6 hover:border-accent/30 transition-colors">
               <Target className="w-8 h-8 text-accent mb-3" />
               <h3 className="font-heading font-semibold text-foreground mb-2">Mission</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">Help businesses grow in digital platforms by turning ideas into elegant digital products.</p>
+              <p className="text-sm text-muted-foreground leading-relaxed text-justify">Help businesses grow in digital platforms by turning ideas into elegant digital products.</p>
             </div>
             <div className="glass-card rounded-2xl p-6 sm:col-span-2 hover:border-accent/30 transition-colors">
               <Sparkles className="w-8 h-8 text-accent mb-3" />
               <h3 className="font-heading font-semibold text-foreground mb-2">What We Offer?</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed text-justify">
                 We offering Elagent style digital products using react.js. Real world Solutions . AI powered chatbots — all designed with a premium, professional finish.
               </p>
             </div>

@@ -105,7 +105,7 @@ const Hero = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background"
     >
       {/* Live coding background — full section */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
         <div className="absolute inset-0 flex">
           <div className="w-12 md:w-14 border-r border-accent/20 bg-foreground/[0.03] font-mono-tech text-[11px] md:text-xs text-muted-foreground/60 leading-7 pt-8 text-right pr-2 select-none">
             {Array.from({ length: 60 }).map((_, i) => (
