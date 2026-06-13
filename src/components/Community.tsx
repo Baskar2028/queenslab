@@ -14,14 +14,14 @@ const members = [
     desc: "Skilled in programming languages C, C++, Python, Java, JavaScript, React JS, MySQL | frameworks: Tailwind CSS, Flask |  APIs and Networking ,Linux.",
     skills: ["C", "C++", "Python", "Java", "JavaScript", "React", "MySQL", "Tailwind", "Flask", "APIs", "Linux"],
   },
-  {
-    name:"Deepak",
-    role:"Developer",
-    image:founderImg2,
-    href:"/developer",
-    desc:"Skilled in Programming Languages C , C++ ,Python , Java,JavaScript,ReactJs , MongoDB |  frameworks : Bootstrap , Nodejs | APIs",
-    skills:["C","C++","Java","Python","JavaScript","React","NodeJs","MongoDB","APIS","Linux"],
-  },
+  // {
+  //   name:"Deepak",
+  //   role:"Developer",
+  //   image:founderImg2,
+  //   href:"/developer",
+  //   desc:"Skilled in Programming Languages C , C++ ,Python , Java,JavaScript,ReactJs , MongoDB |  frameworks : Bootstrap , Nodejs | APIs",
+  //   skills:["C","C++","Java","Python","JavaScript","React","NodeJs","MongoDB","APIS","Linux"],
+  // },
   {
     name: "Rishikesh Ragav",
     role: "DevOps & QA Enginner",
