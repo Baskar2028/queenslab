@@ -19,7 +19,7 @@ const mainPlans = [
   },
   {
     name: "Standard",
-    price: "5,999",
+    price: "4,999",
     tagline: "Most loved by growing businesses",
     features: [
       "4 Pages",
