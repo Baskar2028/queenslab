@@ -19,7 +19,7 @@ const mainPlans = [
   },
   {
     name: "Standard",
-    price: "4,999",
+    price: "5,999",
     tagline: "Most loved by growing businesses",
     features: [
       "4 Pages",
@@ -30,34 +30,22 @@ const mainPlans = [
     ],
     popular: true,
   },
-  {
-    name: "Premium",
-    price: "14,999",
-    tagline: "Full-scale e-commerce experience",
-    features: [
-      "Modern Responsive website",
-      "Database integration",
-      "SEO setup",
-      "Admin Dashboard",
-      "Deployment support",
-      "AI chabot integrated"
-    ],
-    popular: false,
-  },
+  // {
+  //   name: "Premium",
+  //   price: "14,999",
+  //   tagline: "Full-scale e-commerce experience",
+  //   features: [
+  //     "Modern Responsive website",
+  //     "Database integration",
+  //     "SEO setup",
+  //     "Admin Dashboard",
+  //     "Deployment support",
+  //     "AI chabot integrated"
+  //   ],
+  //   popular: false,
+  // },
 ];
 
-const studentPlans = [
-  {
-    name: "Portfolio",
-    price: "599",
-    features: ["Complete Responsive Portfolio",  "Simple & Stylish"],
-  },
-  {
-    name: "Rich & Premium",
-    price: "999",
-    features: ["Premium Portfolio", "Added Resume Section"],
-  },
-];
 
 const Pricing = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -83,7 +71,7 @@ const Pricing = () => {
         <div className="w-16 h-1 bg-accent mx-auto rounded-full mb-14" />
 
         {/* Main 3 cards */}
-        <div className="grid md:grid-cols-3 gap-6 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
           {mainPlans.map((plan, i) => (
             <div
               key={plan.name}
@@ -136,54 +124,6 @@ const Pricing = () => {
           ))}
         </div>
 
-        {/* Students section */}
-        <div className="mt-20">
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <GraduationCap className="w-5 h-5 text-accent" />
-            <p className="font-mono-tech text-xs text-accent tracking-[0.3em] uppercase">// specially for students</p>
-          </div>
-          <h3 className="text-2xl md:text-3xl font-heading font-bold text-center mb-2">
-            Student <span className="text-gradient">Specials</span>
-          </h3>
-          <p className="font-mono-tech text-xs text-accent text-center tracking-[0.2em] uppercase mb-10">Limited Offer</p>
-
-          <div className="grid sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {studentPlans.map((plan, i) => (
-              <div
-                key={plan.name}
-                className={`glass-card rounded-2xl p-7 flex flex-col hover:border-accent/40 hover:-translate-y-1 transition-all duration-500 ${
-                  visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                }`}
-                style={{ transitionDelay: `${(i + 3) * 120}ms` }}
-              >
-                <h4 className="font-heading text-lg font-semibold text-foreground mb-3">{plan.name}</h4>
-                <div className="flex items-baseline gap-1 mb-5">
-                  <span className="font-heading text-xl font-bold text-accent">Rs.</span>
-                  <span className="font-heading text-4xl font-extrabold text-foreground tracking-tight">{plan.price}</span>
-                  <span className="text-muted-foreground text-sm ml-1">/-</span>
-                </div>
-                <ul className="space-y-2.5 mb-7 flex-1">
-                  {plan.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-                      <span className="mt-0.5 w-4 h-4 rounded-full bg-accent/15 flex items-center justify-center shrink-0">
-                        <Check className="w-2.5 h-2.5 text-accent" strokeWidth={3} />
-                      </span>
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={FORM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center justify-center gap-2 w-full px-5 py-2.5 rounded-xl border border-accent/40 text-foreground font-heading font-semibold hover:bg-accent/10 hover:border-accent transition-all"
-                >
-                  Get Started <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );
