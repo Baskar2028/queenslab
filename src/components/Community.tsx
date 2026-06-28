@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { UserCircle2, ArrowUpRight } from "lucide-react";
 import founderImg from "@/assets/founder.jpeg";
 import cofounderImg from "@/assets/cofounder.png";
+import foundImg from "@/assets/Deepak.jpeg"
 
 
 const members = [
@@ -11,8 +12,16 @@ const members = [
     role: "Lead Developer",
     image: founderImg,
     href: "/leaddeveloper",
-    desc: "Skilled in programming languages C, C++, Python, Java, JavaScript, React JS, MySQL | frameworks: Tailwind CSS, Flask |  APIs and Networking ,Linux.",
-    skills: ["C", "C++", "Python", "Java", "JavaScript", "React", "MySQL","MongoDB", "Tailwind", "Flask", "APIs", "Linux"],
+    desc: "Skilled in programming languages C, C++, Python, Java, JavaScript, React JS, MongoDB | frameworks: Tailwind CSS, Flask |  APIs and Networking ,Linux.",
+    skills: ["C", "C++", "Python", "Java", "JavaScript",  "Nextjs","MongoDB", "Tailwind", "Flask", "APIs", "Linux"],
+  },
+  {
+    name:"Deepak",
+    role:"Developer",
+    image:foundImg,
+    href:"/developer",
+    desc:"Skilled in programming languages C,C++,Python,Java,JavaScript, React Js, MySQL | frameworks:Bootstrap , Flask |APIs and  OS like Linux",
+    skills:["C", "C++", "Python", "Java", "JavaScript", "React", "MySQL",  "Flask","Bootstrap", "APIs", "Linux"]
   },
   {
     name: "Rishikesh Ragav",
@@ -22,6 +31,7 @@ const members = [
     desc: "Skilled in Wireshark, Nmap, HTTP/DNS traffic analysis, port scanning, network reconnaissance, and programming in JavaScript, C, and Python.",
     skills: ["Wireshark", "Nmap", "HTTP/DNS", "Port Scanning", "Recon", "JavaScript", "C", "Python"],
   },
+  
 ];
 
 const Community = () => {
@@ -46,7 +56,7 @@ const Community = () => {
         </h2>
         <div className="w-16 h-1 bg-accent mx-auto rounded-full mb-14" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
           {members.map((m, i) => (
             <Link
               to={m.href}

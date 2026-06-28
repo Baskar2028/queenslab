@@ -7,6 +7,7 @@ import Index from "./pages/Index.tsx";
 import Founder from "./pages/Founder.tsx";
 import CoFounder from "./pages/CoFounder.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import Coo from "./pages/Coo.tsx";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/leaddeveloper" element={<Founder />} />
           <Route path="/tester" element={<CoFounder />} />
+          <Route path="/developer" element={<Coo />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
