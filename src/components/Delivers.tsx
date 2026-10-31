@@ -25,7 +25,7 @@ const Delivers = () => {
         <div className="w-16 h-1 bg-accent mx-auto rounded-full mb-12" />
 
         <div
-          className={`mx-auto max-w-4xl glass-card rounded-3xl overflow-hidden group transition-all duration-700 hover:border-accent/40 hover:shadow-[0_0_60px_hsl(var(--accent)/0.18)] ${
+          className={`surface-card mx-auto max-w-4xl overflow-hidden rounded-2xl group transition-all duration-500 hover:border-accent/40 hover:shadow-[0_18px_50px_-32px_hsl(var(--accent)/0.55)] ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
@@ -36,7 +36,7 @@ const Delivers = () => {
               className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.03]"
               loading="lazy"
             />
-            <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/70 backdrop-blur-md border border-accent/30">
+            <div className="absolute top-4 left-4 flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1.5">
               <Sparkles className="w-3.5 h-3.5 text-accent" />
               <span className="font-mono-tech text-[11px] tracking-widest uppercase text-accent">Live Project</span>
             </div>

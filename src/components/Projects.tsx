@@ -69,7 +69,7 @@ const Projects = () => {
           {projects.map((p, i) => (
             <div
               key={i}
-              className={`glass-card rounded-xl overflow-hidden group transition-all duration-500 hover:shadow-[0_0_40px_hsl(276_90%_37%/0.2)] hover:border-primary/30 ${
+              className={`surface-card overflow-hidden rounded-xl group transition-all duration-300 hover:shadow-[0_16px_40px_-25px_hsl(var(--accent)/0.55)] hover:border-primary/30 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
               style={{ transitionDelay: `${i * 120}ms` }}

@@ -7,7 +7,7 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "1rem",
       screens: {
         "2xl": "1400px",
       },
@@ -43,6 +43,11 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+        },
+        violet: {
+          surface: "hsl(var(--violet-surface))",
+          soft: "hsl(var(--violet-soft))",
+          deep: "hsl(var(--violet-deep))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",

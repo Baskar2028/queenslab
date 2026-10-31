@@ -51,7 +51,7 @@ const Services = () => {
             {services.map((s, i) => (
               <div
                 key={i}
-                className={`glass-card rounded-2xl p-6 group hover:border-accent/40 hover:-translate-y-1 transition-all duration-500 ${
+                className={`surface-card rounded-xl p-6 group hover:border-accent/40 hover:-translate-y-1 transition-all duration-300 ${
                   visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 } ${i === 2 ? "sm:col-span-2" : ""}`}
                 style={{ transitionDelay: `${i * 120}ms` }}
@@ -92,7 +92,6 @@ const Services = () => {
             }`}
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-accent/15 blur-[80px] rounded-full" />
               <img
                 src={servicesIllustration}
                 alt="Web development illustration"

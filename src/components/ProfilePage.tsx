@@ -18,9 +18,6 @@ const ProfilePage = ({ name, role, image, intro, paraTwo, paraThree }: ProfilePa
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* subtle accent glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-accent/10 blur-[140px] rounded-full pointer-events-none" />
-
       <div className="relative container mx-auto max-w-6xl px-6 py-16 md:py-24">
         <Link
           to="/"
@@ -30,11 +27,10 @@ const ProfilePage = ({ name, role, image, intro, paraTwo, paraThree }: ProfilePa
           Back to Home
         </Link>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid items-start gap-12 lg:grid-cols-2">
           {/* Image with badge */}
           <div className="relative animate-fade-up">
-            <div className="absolute -inset-4 bg-accent/20 blur-3xl rounded-3xl" />
-            <div className="relative rounded-3xl overflow-hidden border border-accent/30 shadow-[0_30px_80px_-20px_hsl(var(--accent)/0.4)] max-w-sm mx-auto aspect-[3/4]">
+            <div className="relative mx-auto aspect-[3/4] max-w-sm overflow-hidden rounded-2xl border border-border shadow-[0_20px_60px_-32px_hsl(var(--foreground)/0.35)]">
               <img
                 src={image}
                 alt={name}
@@ -42,10 +38,10 @@ const ProfilePage = ({ name, role, image, intro, paraTwo, paraThree }: ProfilePa
               />
             </div>
             {/* Rectangle badge in corner */}
-            <div className="absolute -bottom-5 -right-3 sm:right-4 glass-card rounded-xl px-5 py-3 border border-accent/40 shadow-[0_15px_40px_-10px_hsl(var(--accent)/0.5)]">
+            <div className="surface-card absolute -bottom-5 -right-3 rounded-lg px-5 py-3 shadow-md sm:right-4">
               <p className="font-mono-tech text-[10px] tracking-[0.2em] uppercase text-accent mb-0.5">{role}</p>
               <p className="font-heading font-bold text-sm md:text-base text-foreground whitespace-nowrap">
-                of Queen's Lab
+                of Atexra
               </p>
             </div>
           </div>
@@ -65,7 +61,7 @@ const ProfilePage = ({ name, role, image, intro, paraTwo, paraThree }: ProfilePa
 
             <p className="text-muted-foreground text-base leading-relaxed text-justify">{paraTwo}</p>
 
-            <div className="glass-card rounded-2xl p-5 border-l-4 border-accent">
+            <div className="surface-card rounded-xl border-l-4 border-accent p-5">
               <p className="text-foreground/90 text-base leading-relaxed italic text-justify">"{paraThree}"</p>
             </div>
 

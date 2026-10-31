@@ -61,7 +61,7 @@ const Community = () => {
             <Link
               to={m.href}
               key={m.name}
-              className={`block cursor-pointer glass-card rounded-2xl p-7 group hover:border-accent/40 hover:-translate-y-2 hover:shadow-[0_20px_50px_-15px_hsl(var(--accent)/0.35)] transition-all duration-500 ${
+              className={`surface-card block cursor-pointer rounded-2xl p-7 group hover:border-accent/40 hover:-translate-y-1 hover:shadow-[0_20px_45px_-24px_hsl(var(--accent)/0.45)] transition-all duration-500 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
               style={{ transitionDelay: `${i * 150}ms` }}
@@ -76,14 +76,13 @@ const Community = () => {
 
               <div className="flex flex-col items-center text-center">
                 <div className="relative mb-5">
-                  <div className="absolute inset-0 bg-accent/30 blur-2xl rounded-full" />
                   <img
                     src={m.image}
                     alt={m.name}
                     loading="lazy"
                     width={768}
                     height={768}
-                    className="relative w-32 h-32 rounded-full object-cover border-2 border-accent/40 group-hover:border-accent transition-colors"
+                    className="relative h-32 w-32 rounded-full border-2 border-border object-cover transition-colors group-hover:border-accent"
                   />
                 </div>
 

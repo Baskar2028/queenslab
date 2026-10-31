@@ -75,7 +75,7 @@ const Pricing = () => {
           {mainPlans.map((plan, i) => (
             <div
               key={plan.name}
-              className={`relative glass-card rounded-2xl p-7 flex flex-col transition-all duration-500 hover:-translate-y-2 ${
+              className={`surface-card relative flex flex-col rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 sm:p-7 ${
                 plan.popular
                   ? "border-accent/60 shadow-[0_0_50px_hsl(var(--accent)/0.25)] md:scale-[1.04]"
                   : "hover:border-accent/40"
@@ -92,9 +92,9 @@ const Pricing = () => {
               <p className="text-xs text-muted-foreground mb-5">{plan.tagline}</p>
 
               <div className="flex items-baseline gap-1 mb-6">
-                <span className="font-heading text-2xl font-bold text-accent">Rs.</span>
-                <span className="font-heading text-5xl font-extrabold text-foreground tracking-tight">{plan.price}</span>
-                <span className="text-muted-foreground text-base ml-1">/-</span>
+                <span className="font-heading text-xl font-bold text-accent sm:text-2xl">Rs.</span>
+                <span className="font-heading text-4xl font-extrabold text-foreground tracking-tight sm:text-5xl">{plan.price}</span>
+                <span className="ml-1 text-sm text-muted-foreground sm:text-base">/-</span>
               </div>
 
               <ul className="space-y-3 mb-8 flex-1">

@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { MessageCircle, Instagram, Linkedin, MapPin, Mail } from "lucide-react";
-import logoImg from "@/assets/logo.png";
 
 const socials = [
   { icon: <Instagram className="w-5 h-5" />, label: "Instagram", href: "https://www.instagram.com/queenslabofficial/?utm_source=ig_web_button_share_sheet" },
@@ -30,9 +29,9 @@ const Contact = () => {
         </h2>
         <div className="w-16 h-1 bg-accent mx-auto rounded-full mb-14" />
 
-        <div className="relative grid md:grid-cols-2 gap-10 items-stretch min-h-[420px]">
+        <div className="relative grid min-h-[420px] min-w-0 items-stretch gap-10 md:grid-cols-2">
           {/* LEFT — Location bottom + intro */}
-          <div className="relative flex flex-col justify-between">
+          <div className="relative flex min-w-0 flex-col justify-between">
             <div>
               <h3 className="font-heading text-2xl md:text-3xl font-bold mb-4">
                 Let's build something <span className="text-gradient">premium</span>.
@@ -49,7 +48,7 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.label}
-                    className="w-12 h-12 glass-card rounded-full flex items-center justify-center text-accent hover:border-accent/40 hover:bg-accent/10 hover:scale-110 transition-all duration-300"
+                    className="surface-card flex h-12 w-12 items-center justify-center rounded-full text-accent transition-all duration-300 hover:scale-105 hover:border-accent/40 hover:bg-secondary"
                   >
                     {s.icon}
                   </a>
@@ -58,11 +57,8 @@ const Contact = () => {
             </div>
 
             {/* Location bottom-left — Desktop only */}
-            <div className="mt-10 hidden md:inline-flex items-center gap-3 self-start glass-card rounded-full px-5 py-3 border-accent/20">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent" />
-              </span>
+            <div className="surface-card mt-10 hidden items-center gap-3 self-start rounded-full px-5 py-3 md:inline-flex">
+              <span className="h-2.5 w-2.5 rounded-full bg-accent" />
               <MapPin className="w-4 h-4 text-accent" />
               <span className="font-mono-tech text-sm tracking-wider text-foreground">
                 Located in <span className="text-accent font-semibold">India | Tamil Nadu | Thirupattur</span>
@@ -70,29 +66,24 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* RIGHT — Queen's Lab status card centered vertically */}
-          <div className="flex flex-col items-center justify-center md:justify-end gap-6">
-            <div className="glass-card rounded-3xl p-10 w-full max-w-md relative overflow-hidden hover:border-accent/40 transition-all duration-500">
-              <div className="absolute -top-16 -right-16 w-40 h-40 bg-accent/15 blur-3xl rounded-full pointer-events-none" />
-
+          {/* Atexra status card */}
+          <div className="flex min-w-0 flex-col items-center justify-center gap-6 md:justify-end">
+            <div className="surface-card relative w-full max-w-md overflow-hidden rounded-2xl p-7 transition-all duration-300 hover:border-accent/40 sm:p-9">
               <div className="flex items-center justify-between mb-6 relative">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-400/30">
-                  <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                    <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-                  </span>
-                  <span className="font-mono-tech text-[11px] tracking-widest uppercase text-emerald-300">Online</span>
+                <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-secondary px-3 py-1">
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+                  <span className="font-mono-tech text-[11px] tracking-widest uppercase text-violet-deep">Online</span>
                 </div>
                 <span className="font-mono-tech text-[11px] text-muted-foreground">v1.0</span>
               </div>
 
               <div className="relative">
-                <div className="w-16 h-16 rounded-2xl flex items-center justify-center bg-transparent mb-5 overflow-hidden">
-                  <img src={logoImg} alt="Queen's Lab Logo" className="w-full h-full object-contain" />
+                <div className="mb-5 flex h-14 w-14 items-center justify-center overflow-hidden rounded-xl border border-border bg-secondary">
+                  <img src="/atexra.svg" alt="Atexra" className="h-full w-full object-contain" />
                 </div>
 
                 <h3 className="font-heading text-2xl font-bold mb-1">
-                  Queen's <span className="text-gradient">Lab</span>
+                  Atexra
                 </h3>
 
                 <p className="text-sm text-muted-foreground leading-relaxed mb-6">
@@ -100,7 +91,7 @@ const Contact = () => {
                 </p>
 
                 {/* Established card inside */}
-                <div className="bg-white rounded-2xl p-4 mb-6 border-2 border-pink-100">
+                <div className="rounded-xl border border-border bg-secondary p-4 mb-6">
                   <p className="font-mono-tech text-xs tracking-widest uppercase text-muted-foreground mb-2">Agency</p>
                   <h4 className="font-heading text-lg font-bold mb-1">Established in </h4>
                   <p className="font-heading text-xl font-bold">
@@ -121,8 +112,8 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Location Information Card — Mobile only (below Queen's Lab) */}
-            <div className="glass-card rounded-2xl p-6 w-full max-w-sm border-accent/20 hover:border-accent/30 transition-all duration-300 md:hidden">
+            {/* Location information card — mobile only */}
+            <div className="surface-card w-full max-w-sm rounded-xl p-6 transition-all duration-300 hover:border-accent/30 md:hidden">
               <div className="relative flex items-start gap-3">
                 <div className="flex-shrink-0">
                   <MapPin className="w-5 h-5 text-accent mt-0.5" />
@@ -150,7 +141,7 @@ const Contact = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="w-12 h-12 glass-card rounded-full flex items-center justify-center text-accent hover:border-accent/40 hover:bg-accent/10 hover:scale-110 transition-all duration-300"
+                  className="surface-card flex h-12 w-12 items-center justify-center rounded-full text-accent transition-all duration-300 hover:scale-105 hover:border-accent/40 hover:bg-secondary"
                 >
                   {s.icon}
                 </a>

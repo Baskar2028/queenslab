@@ -24,7 +24,7 @@ const Reviews = () => {
         <div className="w-16 h-1 bg-accent mx-auto rounded-full mb-12" />
 
         <div
-          className={`relative glass-card rounded-3xl p-10 md:p-16 max-w-4xl mx-auto transition-all duration-700 ${
+          className={`surface-card relative mx-auto max-w-4xl rounded-2xl p-8 transition-all duration-700 sm:p-10 md:p-14 ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >

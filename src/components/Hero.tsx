@@ -1,177 +1,107 @@
-import { useEffect, useRef, useState } from "react";
-import { SiGithub, SiOpenai, SiGoogle, SiFlask, SiMysql, SiMongodb } from "react-icons/si";
-import { VscVscode } from "react-icons/vsc";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 
-const codeLines = [
-  "import { future } from 'queens-lab';",
-  "",
-  "const queensLab = {",
-  "  mission: 'build premium web experiences',",
-  "  stack: ['React', 'Node', 'AI', 'Tailwind'],",
-  "  craft: () => render(<Premium />),",
-  "};",
-  "",
-  "async function deploy(brand) {",
-  "  const site = await design(brand);",
-  "  const optimized = await optimize(site);",
-  "  return launch(optimized);",
-  "}",
-  "",
-  "// Helping businesses grow worldwide",
-  "export default queensLab;",
-  "",
-  "function Hero() {",
-  "  const [pixels, setPixels] = useState(0);",
-  "  useEffect(() => {",
-  "    const id = requestAnimationFrame(loop);",
-  "    return () => cancelAnimationFrame(id);",
-  "  }, []);",
-  "  return <Canvas glow={true} />;",
-  "}",
-  "",
-  "// premium • professional • crafted",
-  "const palette = {",
-  "  bg: '#0a0a0a',",
-  "  accent: '#ffb3c6',",
-  "  text: '#fafafa',",
-  "};",
-  "",
-  "router.get('/api/launch', async (req, res) => {",
-  "  const data = await db.projects.find();",
-  "  return res.json({ ok: true, data });",
-  "});",
-];
+const Hero = () => (
+  <section
+    id="home"
+    className="relative flex min-h-[min(880px,100svh)] items-center overflow-hidden px-6 pb-16 pt-32"
+  >
+    <div className="pointer-events-none absolute inset-0 hero-grid" aria-hidden="true" />
 
-// Tokenize a code line into colored spans (uses dark colors so they're visible on light bg)
-const tokenize = (line: string, key: number) => {
-  if (line.trim().startsWith("//")) {
-    return <span key={key} className="text-emerald-700/80">{line}</span>;
-  }
-  const parts = line.split(/(\b(?:const|let|var|function|return|async|await|import|export|default|from|if|else|new|true|false|null)\b|'[^']*'|"[^"]*"|\/\/.*$|\b\d+\b)/g);
-  return (
-    <span key={key}>
-      {parts.map((p, i) => {
-        if (!p) return null;
-        if (/^(const|let|var|function|return|async|await|import|export|default|from|if|else|new)$/.test(p))
-          return <span key={i} className="text-fuchsia-700/85">{p}</span>;
-        if (/^(true|false|null)$/.test(p))
-          return <span key={i} className="text-orange-600/85">{p}</span>;
-        if (/^['"]/.test(p))
-          return <span key={i} className="text-emerald-700/85">{p}</span>;
-        if (/^\d+$/.test(p))
-          return <span key={i} className="text-amber-700/85">{p}</span>;
-        if (/^\/\//.test(p))
-          return <span key={i} className="text-emerald-700/80">{p}</span>;
-        return <span key={i} className="text-slate-700/85">{p}</span>;
-      })}
-    </span>
-  );
-};
-
-const techLogos = [
-  { Icon: VscVscode, name: "VS Code", color: "#007ACC" },
-  { Icon: SiGithub, name: "GitHub", color: "#181717" },
-  { Icon: SiOpenai, name: "ChatGPT", color: "#10A37F" },
-  { Icon: SiGoogle, name: "Gemini", color: "#4285F4" },
-  { Icon: SiFlask, name: "Flask", color: "#000000" },
-  { Icon: SiMysql, name: "MySQL", color: "#4479A1" },
-  { Icon: SiMongodb, name: "MongoDB", color: "#47A248" },
-];
-
-const Hero = () => {
-  const [charCount, setCharCount] = useState(0);
-  const fullText = codeLines.join("\n");
-  const rafRef = useRef<number>();
-
-  useEffect(() => {
-    let last = performance.now();
-    const tick = (now: number) => {
-      if (now - last > 35) {
-        setCharCount((c) => (c >= fullText.length ? 0 : c + 2));
-        last = now;
-      }
-      rafRef.current = requestAnimationFrame(tick);
-    };
-    rafRef.current = requestAnimationFrame(tick);
-    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
-  }, [fullText.length]);
-
-  const typedText = fullText.slice(0, charCount);
-  const typedLines = typedText.split("\n");
-
-  return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background"
-    >
-      {/* Live coding background — full section */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
-        <div className="absolute inset-0 flex">
-          <div className="w-12 md:w-14 border-r border-accent/20 bg-foreground/[0.03] font-mono-tech text-[11px] md:text-xs text-muted-foreground/60 leading-7 pt-8 text-right pr-2 select-none">
-            {Array.from({ length: 60 }).map((_, i) => (
-              <div key={i}>{i + 1}</div>
-            ))}
-          </div>
-          <pre className="flex-1 p-8 pt-8 font-mono-tech text-[12px] md:text-sm leading-7 whitespace-pre-wrap select-none">
-            {typedLines.map((l, i) => (
-              <div key={i}>
-                {tokenize(l, i)}
-                {i === typedLines.length - 1 && (
-                  <span className="inline-block w-2 h-4 bg-accent/80 ml-0.5 align-middle animate-pulse" />
-                )}
-              </div>
-            ))}
-          </pre>
-        </div>
-
-        <div className="absolute inset-x-0 h-px bg-accent/30 animate-float" style={{ top: "30%" }} />
-      </div>
-
-      {/* Soft readability overlay — keeps code visible behind */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background/80" />
-
-      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-        <p className="font-mono-tech text-xs md:text-sm text-accent mb-6 tracking-[0.3em] uppercase opacity-0 animate-fade-up">
-          &lt;/&gt; Crafted with code
+    <div className="relative mx-auto grid w-full max-w-7xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+      <div className="max-w-2xl">
+        <p className="mb-6 inline-flex items-center gap-3 font-mono-tech text-xs font-medium uppercase tracking-[0.18em] text-violet-deep">
+          <span className="h-px w-8 bg-accent" />
+          Intelligent Digital Solutions
         </p>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-center opacity-0 animate-fade-up" style={{ animationDelay: "0.15s" }}>
-  We build websites that take your{" "}
-  <span className="text-gradient">business</span>
-  <br />
-  to the next level
-</h1>
-        
+        <h1 className="text-4xl font-bold leading-[1.12] tracking-tight sm:text-5xl md:text-6xl">
+          We build websites that take your{" "}
+          <span className="text-violet-deep">business</span> to the next level.
+        </h1>
 
-        {/* Baby pinkish decorative line */}
-        <div className="flex justify-center mb-8">
-          <div className="h-1.5 w-24 bg-gradient-to-r from-pink-300 to-pink-200 rounded-full opacity-0 animate-fade-up" style={{ animationDelay: "0.25s" }} />
-        </div>
-
-        <p className="font-mono-tech text-sm sm:text-base md:text-lg text-foreground/90 mb-3 tracking-wider opacity-0 animate-fade-up" style={{ animationDelay: "0.3s" }}>
-          Discover <span className="text-accent">•</span> Solve <span className="text-accent">•</span> Innovate
+        <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
+          Build Smarter. Automate Better.
+        </p>
+        <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground">
+          Discover <span className="text-violet-deep">·</span> Solve{" "}
+          <span className="text-violet-deep">·</span> Innovate
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-3 justify-center opacity-0 animate-fade-up" style={{ animationDelay: "0.6s" }}>
+        <div className="mt-9 flex flex-col gap-3 sm:flex-row">
           <a
             href="#delivers"
-            className="px-6 py-3 rounded-lg bg-accent text-accent-foreground font-heading font-semibold glow-button hover:scale-105 transition-transform duration-200"
+            className="glow-button inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3 font-semibold text-accent-foreground transition-transform hover:-translate-y-0.5"
           >
             View Project
+            <ArrowDown className="h-4 w-4" />
           </a>
           <a
             href="https://docs.google.com/forms/d/17YJBQXJHkfELS56bJmzXUW0pPLHzZm3K-cufoUu7-kE/edit"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 rounded-lg border border-accent/50 text-foreground font-heading font-semibold hover:bg-accent/10 hover:border-accent transition-all duration-200"
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-border bg-background px-6 py-3 font-semibold text-foreground transition-colors hover:border-accent/50 hover:bg-secondary"
           >
             Start Project
+            <ArrowUpRight className="h-4 w-4" />
           </a>
         </div>
       </div>
 
-    </section>
-  );
-};
+      <div className="relative mx-auto w-full max-w-[540px]">
+        <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-secondary/80" />
+        <div className="relative overflow-hidden rounded-2xl border border-border bg-white p-6 shadow-[0_24px_70px_-45px_hsl(var(--foreground)/0.28)] sm:p-8">
+          <div className="flex items-center justify-between border-b border-border pb-5">
+            <div className="flex items-center gap-3">
+              <img src="/atexra.svg" alt="" className="h-9 w-9" />
+              <div>
+                <p className="font-heading text-sm font-semibold">Atexra</p>
+                <p className="font-mono-tech text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
+                  Digital studio
+                </p>
+              </div>
+            </div>
+            <span className="font-mono-tech text-xs text-muted-foreground">01 — 03</span>
+          </div>
+
+          <div className="relative my-7 flex aspect-[1.28] items-center justify-center overflow-hidden rounded-xl bg-secondary">
+            <svg
+              viewBox="0 0 420 300"
+              fill="none"
+              className="absolute inset-0 h-full w-full"
+              aria-hidden="true"
+            >
+              <path d="M0 75H420M0 150H420M0 225H420M105 0V300M210 0V300M315 0V300" stroke="#EAE4F3" />
+              <circle cx="210" cy="150" r="95" stroke="#DCCBFF" />
+              <circle cx="210" cy="150" r="67" stroke="#C4A9FF" />
+              <circle cx="210" cy="150" r="39" stroke="#8B5CF6" strokeOpacity=".65" />
+              <path d="M210 48V252M108 150H312" stroke="#8B5CF6" strokeOpacity=".25" />
+              <circle cx="210" cy="150" r="7" fill="#6D28D9" />
+              <circle cx="210" cy="55" r="4" fill="#8B5CF6" />
+              <circle cx="305" cy="150" r="4" fill="#8B5CF6" />
+            </svg>
+            <div className="relative flex h-20 w-20 items-center justify-center rounded-2xl border border-white bg-white text-4xl font-bold text-violet-deep shadow-[0_12px_30px_-18px_hsl(var(--violet-deep)/0.7)]">
+              A
+            </div>
+          </div>
+
+          <div className="grid grid-cols-3 divide-x divide-border">
+            {["AI solutions", "Web platforms", "Automation"].map((item, index) => (
+              <div key={item} className="px-2 first:pl-0 last:pr-0 sm:px-4">
+                <p className="font-mono-tech text-[10px] text-violet-deep">0{index + 1}</p>
+                <p className="mt-1 text-xs font-medium leading-snug text-foreground sm:text-sm">
+                  {item}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="absolute -bottom-5 -left-4 hidden items-center gap-2 rounded-lg border border-border bg-white px-4 py-3 text-xs font-medium text-muted-foreground shadow-sm sm:flex">
+          <span className="h-2 w-2 rounded-full bg-accent" />
+          Designed for what’s next
+        </div>
+      </div>
+    </div>
+  </section>
+);
 
 export default Hero;
