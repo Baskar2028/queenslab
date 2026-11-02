@@ -4,7 +4,7 @@ import kvSkyTurfPreview from "@/assets/delivers-kvskyturf.png";
 import PageMeta from "@/components/PageMeta";
 import fashionimage from "@/assets/fashion.png";
 import pixelperfectstudio from "@/assets/pixel-perfect-studio.png";
-import queensgiftf from "@/assets/queensgift.png";
+import queensgift from "@/assets/queensgift.png";
 type ProjectCategory = "Delivered" | "Also Offer" | "AI & Automation";
 type FilterCategory = "All" | ProjectCategory;
 
@@ -49,7 +49,7 @@ const projects: Project[] = [
     description: "A sample website offering for a fashion-focused project.",
     url: "https://fashionsite-one.vercel.app/",
     image: fashionimage,
-    imageAlt:"Website Preview of Fashion Website"
+    imageAlt:""
   },
   {
     id: "queens-gift-boutique",
@@ -57,7 +57,8 @@ const projects: Project[] = [
     category: "Also Offer",
     description: "A sample website offering for a project named Queens Gift Boutique.",
     url: "https://queens-gift-boutique-main.vercel.app/",
-    needsReview: true,
+    image: queensgift,
+    imageAlt:"Website Preview of Queens Gift Website"
   },
   {
     id: "ms-code-gym",
