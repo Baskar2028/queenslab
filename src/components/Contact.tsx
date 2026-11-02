@@ -103,10 +103,10 @@ const Contact = () => (
           {/* Agency Logo */}
           <div className="mt-6">
             <img
-              src="/logo.png"
-              alt="ATEXRA Logo"
-              className="h-14 w-14 object-contain"
-            />
+  src={logo}
+  alt="ATEXRA Logo"
+  className="h-14 w-14 object-contain"
+/>
           </div>
 
           {/* Agency Details */}
