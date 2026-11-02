@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="en" class="light">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-site-verification" content="cT7bcehcCZwrUOJR9PqkMSUW59-6Lb4SvVUz_tEtY1Y" />
 
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#071522" />
 
     <meta
       name="description"
-      content="Atexra creates intelligent digital solutions, modern websites, and web applications that help small businesses grow. Build Smarter. Automate Better."
+      content="ATEXRA builds modern websites and web applications, integrates AI where it adds value, and helps businesses improve workflows with automation."
     />
 
     <meta
@@ -17,16 +17,24 @@
       content="Atexra, AI solutions, digital solutions, web development, website design, web application, automation"
     />
 
-    <meta name="author" content="Atexra" />
+    <meta name="author" content="ATEXRA" />
 
-    <title>Atexra | Intelligent Digital Solutions</title>
-    <link rel="icon" type="image/svg+xml" href="/atexra.svg" />
+    <title>ATEXRA | Intelligent Digital Solutions</title>
+    <script>
+      (() => {
+        const savedTheme = localStorage.getItem("atexra-theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const theme = savedTheme || (prefersDark ? "dark" : "light");
+        document.documentElement.classList.toggle("dark", theme === "dark");
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="./src/assets/logo.png" />
 
-    <meta property="og:title" content="Atexra | Intelligent Digital Solutions" />
+    <meta property="og:title" content="ATEXRA | Intelligent Digital Solutions" />
 
     <meta
       property="og:description"
-      content="Intelligent Digital Solutions. Build Smarter. Automate Better."
+      content="Modern websites, web applications, AI-integrated solutions, and practical automation."
     />
 
     <meta property="og:type" content="website" />
@@ -37,7 +45,7 @@
 
     <meta name="twitter:card" content="summary_large_image" />
 
-    <meta name="twitter:title" content="Atexra | Intelligent Digital Solutions" />
+    <meta name="twitter:title" content="ATEXRA | Intelligent Digital Solutions" />
 
     <meta
       name="twitter:description"

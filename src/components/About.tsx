@@ -1,66 +1,61 @@
-import { useEffect, useRef, useState } from "react";
-import { Target, Eye, Sparkles } from "lucide-react";
+import { Bot, Code2, Workflow } from "lucide-react";
+import { Link } from "react-router-dom";
 
-const About = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+const highlights = [
+  {
+    icon: Code2,
+    title: "Modern web development",
+    description: "Websites and applications designed around your goals and audience.",
+  },
+  {
+    icon: Bot,
+    title: "AI-integrated solutions",
+    description: "AI bot considered where it can make an experience or workflow more useful.",
+  },
+  {
+    icon: Workflow,
+    title: "Business automation",
+    description: "Practical automation explored around your existing tools and processes.",
+  },
+];
 
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) setVisible(true); },
-      { threshold: 0.15 }
-    );
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-
-  return (
-    <section id="about" className="py-24 px-6" ref={ref}>
-      <div className={`container mx-auto max-w-6xl transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-        {/* <p className="font-mono-tech text-xs text-accent text-center tracking-[0.3em] uppercase mb-3">// about</p> */}
-        <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-4">
-          About <span className="text-gradient accent-underline">Atexra</span>
-        </h2>
-        <div className="w-16 h-1 bg-accent mx-auto rounded-full mb-12" />
-
-        <div className="grid lg:grid-cols-2 gap-10 items-stretch">
-          {/* Left: paragraph */}
-          <div className="surface-card rounded-2xl p-8 text-muted-foreground text-base leading-relaxed space-y-5 md:p-10 md:text-lg">
-            <p>
-              <span className="text-foreground font-medium">Atexra</span> is a digital development studio focused on building impactful, modern and premium web solutions for ambitious brands and growing startups around the world.
-            </p>
-            <p>
-              We specialize in <span className="text-accent font-medium">AI chatbots</span>, <span className="text-accent font-medium">smart applications</span>, and <span className="text-accent font-medium">cutting-edge web platforms</span> — combining clean design, scalable architecture and a sharp eye for detail in every pixel we ship.
-            </p>
-            <p>
-              Driven by a deep interest in <span className="text-accent font-medium">artificial intelligence</span>, <span className="text-accent font-medium">cybersecurity</span> and <span className="text-accent font-medium">web development</span>, we craft secure, scalable digital experiences with a strong focus on continuous learning and innovation.
-            </p>
-          </div>
-
-          {/* Right: vision/mission cards + founders */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            <div className="surface-card rounded-xl p-6 transition-colors hover:border-accent/30">
-              <Eye className="w-8 h-8 text-accent mb-3" />
-              <h3 className="font-heading font-semibold text-foreground mb-2">Vision</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed text-justify">To become a global studio known for premium, future-ready web apps and provide solutions for various real world problems.</p>
-            </div>
-            <div className="surface-card rounded-xl p-6 transition-colors hover:border-accent/30">
-              <Target className="w-8 h-8 text-accent mb-3" />
-              <h3 className="font-heading font-semibold text-foreground mb-2">Mission</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed text-justify">Help businesses grow in digital platforms by turning ideas into elegant digital products.</p>
-            </div>
-            <div className="surface-card rounded-xl p-6 transition-colors hover:border-accent/30 sm:col-span-2">
-              <Sparkles className="w-8 h-8 text-accent mb-3" />
-              <h3 className="font-heading font-semibold text-foreground mb-2">What We Offer?</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed text-justify">
-                We offering Elagent style digital products using react.js. Real world Solutions . AI powered chatbots — all designed with a premium, professional finish.
-              </p>
-            </div>
-          </div>
+const About = () => (
+  <section id="about" className="px-5 py-20 sm:px-8 sm:py-24">
+    <div className="mx-auto max-w-7xl">
+      <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+        <div>
+          <p className="font-mono-tech text-xs uppercase tracking-[0.18em] text-accent">
+            About ATEXRA
+          </p>
+          <h2 className="mt-3 font-heading text-3xl font-semibold tracking-tight sm:text-4xl">
+            Technology, shaped around your business.
+          </h2>
+          <p className="mt-5 text-base leading-relaxed text-muted-foreground">
+            ATEXRA builds modern digital experiences and helps businesses explore AI and
+            automation where they serve a clear purpose. Each project starts with understanding
+            what needs to work better.
+          </p>
+          <Link
+            to="/about"
+            className="mt-6 inline-flex min-h-10 items-center text-sm font-semibold text-accent transition-colors hover:text-foreground"
+          >
+            Meet the founder <span className="ml-2" aria-hidden="true">→</span>
+          </Link>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-3">
+          {highlights.map(({ icon: Icon, title, description }) => (
+            <article key={title} className="surface-card rounded-2xl p-5 sm:p-6">
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 text-accent">
+                <Icon className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <h3 className="mt-5 font-heading text-base font-semibold leading-snug">{title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
+            </article>
+          ))}
         </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default About;

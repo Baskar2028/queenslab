@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft, Phone, ArrowRight } from "lucide-react";
 import { useEffect } from "react";
+import { siteConfig } from "@/config/siteConfig";
 
 interface ProfilePageProps {
   name: string;
@@ -67,7 +68,7 @@ const ProfilePage = ({ name, role, image, intro, paraTwo, paraThree }: ProfilePa
 
             <div className="flex flex-wrap gap-4 pt-2">
               <a
-                href="https://docs.google.com/forms/d/17YJBQXJHkfELS56bJmzXUW0pPLHzZm3K-cufoUu7-kE/edit"
+                href={siteConfig.bookCallUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-accent text-accent-foreground font-heading font-semibold glow-button hover:scale-105 transition-transform"

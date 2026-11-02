@@ -19,7 +19,7 @@ const Delivers = () => {
     <section id="delivers" className="py-24 px-6" ref={ref}>
       <div className="container mx-auto max-w-7xl">
         <p className="font-mono-tech text-xs text-accent text-center tracking-[0.3em] uppercase mb-3">// what we delivered</p>
-        <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-4">
+        <h2 className="text-2xl md:text-3xl font-heading font-semibold text-center mb-4">
           Our <span className="text-gradient accent-underline">Delivers</span>
         </h2>
         <div className="w-16 h-1 bg-accent mx-auto rounded-full mb-12" />
@@ -36,18 +36,19 @@ const Delivers = () => {
               className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.03]"
               loading="lazy"
             />
-            <div className="absolute top-4 left-4 flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1.5">
+            <div className="absolute top-4 left-4 flex items-center gap-2 rounded-full border border-border bg-card/95 px-3 py-1.5 backdrop-blur">
               <Sparkles className="w-3.5 h-3.5 text-accent" />
               <span className="font-mono-tech text-[11px] tracking-widest uppercase text-accent">Live Project</span>
             </div>
           </div>
 
           <div className="p-6 md:p-7 text-center">
-            <h3 className="font-heading text-2xl md:text-3xl font-bold mb-3">
-              Website for Turf — <span className="text-gradient">Book Through Online</span>
+            <h3 className="font-heading text-xl md:text-2xl font-semibold mb-3">
+              KV Sky Turf
             </h3>
             <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-6">
-              A premium rooftop sports turf booking experience crafted for KV Sky Turf — cinematic visuals, seamless online booking and a championship-grade brand feel.
+              A delivered website for a sports turf business, giving KV Sky Turf a dedicated
+              presence online.
             </p>
             <a
               href="https://kvskyturf.in/"

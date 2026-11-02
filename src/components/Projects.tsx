@@ -1,113 +1,201 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { ExternalLink } from "lucide-react";
-import projectPhotoStudio from "@/assets/project-photo-studio.png";
-import projectGym from "@/assets/project-gym.png";
-import projectFashion from "@/assets/project-fashion.png";
-import projectMajestica from "@/assets/project-majestica.png";
-import projectWhatsappBot from "@/assets/project-whatsapp-bot.jpg";
+import kvSkyTurfPreview from "@/assets/delivers-kvskyturf.png";
+import PageMeta from "@/components/PageMeta";
 
-const projects = [
+type ProjectCategory = "Delivered" | "Also Offer" | "AI & Automation";
+type FilterCategory = "All" | ProjectCategory;
+
+interface Project {
+  id: string;
+  name: string;
+  category: ProjectCategory;
+  description: string;
+  url: string;
+  image?: string;
+  imageAlt?: string;
+  needsReview?: boolean;
+}
+
+const categories: FilterCategory[] = ["All", "Delivered", "Also Offer", "AI & Automation"];
+
+const projects: Project[] = [
   {
-    title: "Portfolio Website for Photo Studio",
-    desc: "A cinematic photography portfolio with full-screen hero, gallery, and booking system.",
-    image: projectPhotoStudio,
-    tags: ["React", "Photography", "Portfolio"],
-    link: "https://pixel-perfect-studio-w6t4.vercel.app/",
+    id: "kv-sky-turf",
+    name: "KV Sky Turf",
+    category: "Delivered",
+    description:
+      "A website created for KV Sky Turf, a sports turf business, with an online presence for its venue.",
+    url: "https://kvskyturf.in/",
+    image: kvSkyTurfPreview,
+    imageAlt: "Existing KV Sky Turf website preview",
   },
   {
-    title: "Gym & Fitness Website",
-    desc: "High-energy fitness platform with class schedules, membership plans, and trainer profiles.",
-    image: projectGym,
-    tags: ["Fitness", "Full Stack", "Booking"],
-    link: "https://mscodegym.netlify.app/",
+    id: "pixel-perfect-studio",
+    name: "Pixel Perfect Studio",
+    category: "Also Offer",
+    description: "A sample website offering for a project named Pixel Perfect Studio.",
+    url: "https://pixel-perfect-studio-w6t4.vercel.app/",
+    needsReview: true,
   },
   {
-    title: "Fashion Wear Website",
-    desc: "Premium menswear brand site with lookbook, collection showcase, and e-commerce ready design.",
-    image: projectFashion,
-    tags: ["Fashion", "E-Commerce", "UI/UX"],
-    link: "https://fashionsite-one.vercel.app/",
+    id: "fashion-website",
+    name: "Fashion Website",
+    category: "Also Offer",
+    description: "A sample website offering for a fashion-focused project.",
+    url: "https://fashionsite-one.vercel.app/",
+    needsReview: true,
   },
   {
-    title: 'Mental Health Chatbot – "Majestica"',
-    desc: "AI-powered mental health companion with empathetic conversations and mood tracking features.",
-    image: projectMajestica,
-    tags: ["AI", "Chatbot", "Mental Health"],
-    link: "https://majestica-frontend.vercel.app/",
+    id: "queens-gift-boutique",
+    name: "Queens Gift Boutique",
+    category: "Also Offer",
+    description: "A sample website offering for a project named Queens Gift Boutique.",
+    url: "https://queens-gift-boutique-main.vercel.app/",
+    needsReview: true,
   },
   {
-    title: "WhatsApp Bot",
-    desc: "Automated WhatsApp chatbot with smart message handling, scheduled replies, and rich media flows. Developed by Co-Founder.",
-    image: projectWhatsappBot,
-    tags: ["Bot", "Automation", "Developed by Co-Founder"],
-    link: "#",
+    id: "ms-code-gym",
+    name: "MSCodeGym",
+    category: "Also Offer",
+    description: "The live page identifies this offering as Ms.Code Gym; details need review.",
+    url: "https://mscodegym.netlify.app/",
+    needsReview: true,
+  },
+  {
+    id: "majestica",
+    name: "Majestica",
+    category: "AI & Automation",
+    description:
+      "An example digital project. Its purpose and available AI or automation functionality should be confirmed before publication.",
+    url: "https://majestica-frontend.vercel.app/",
+    needsReview: true,
   },
 ];
 
-const Projects = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) setVisible(true); },
-      { threshold: 0.1 }
+const ProjectVisual = ({ project }: { project: Project }) => {
+  if (project.image) {
+    return (
+      <img
+        src={project.image}
+        alt={project.imageAlt ?? project.name}
+        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.035]"
+        loading="lazy"
+      />
     );
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
+  }
 
   return (
-    <section id="projects" className="py-24 px-6" ref={ref}>
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-4">
-          Our <span className="text-gradient">Projects</span>
-        </h2>
-        <div className="w-16 h-1 bg-accent mx-auto rounded-full mb-12" />
-
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((p, i) => (
-            <div
-              key={i}
-              className={`surface-card overflow-hidden rounded-xl group transition-all duration-300 hover:shadow-[0_16px_40px_-25px_hsl(var(--accent)/0.55)] hover:border-primary/30 ${
-                visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
-              style={{ transitionDelay: `${i * 120}ms` }}
-            >
-              <div className="overflow-hidden h-56 sm:h-64">
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="font-heading font-semibold text-xl text-foreground mb-2">{p.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{p.desc}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {p.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs px-3 py-1 rounded-full bg-accent/15 text-accent font-medium"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <a
-                  href={p.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/80 transition-colors"
-                >
-                  View Project <ExternalLink className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
+    <div
+      className="relative flex h-full min-h-52 items-end overflow-hidden bg-secondary p-6 sm:min-h-56"
+      aria-hidden="true"
+    >
+      <div className="absolute inset-0 opacity-60" aria-hidden="true">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--accent)/.13)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--accent)/.13)_1px,transparent_1px)] bg-[size:32px_32px]" />
+        <div className="absolute -right-10 -top-14 h-48 w-48 rounded-full border border-accent/20" />
+        <div className="absolute -right-2 -top-6 h-32 w-32 rounded-full border border-accent/30" />
       </div>
-    </section>
+      <div className="relative z-10">
+        <p className="font-mono-tech text-[10px] uppercase tracking-[0.18em] text-accent">
+          Sample offering
+        </p>
+        <p className="mt-2 max-w-[18rem] font-heading text-2xl font-semibold leading-tight text-foreground">
+          {project.name}
+        </p>
+        <p className="mt-2 text-xs text-muted-foreground">Preview image not available</p>
+      </div>
+    </div>
+  );
+};
+
+const ProjectCard = ({ project }: { project: Project }) => (
+  <article className="surface-card group flex h-full flex-col overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:border-accent/40">
+    <div className="relative overflow-hidden">
+      <ProjectVisual project={project} />
+      <span className="absolute left-4 top-4 rounded-full border border-border bg-card/90 px-3 py-1 font-mono-tech text-[10px] uppercase tracking-wide text-foreground backdrop-blur">
+        {project.category}
+      </span>
+    </div>
+    <div className="flex flex-1 flex-col p-5 sm:p-6">
+      <h2 className="font-heading text-xl font-semibold">{project.name}</h2>
+      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+        {project.description}
+      </p>
+      {project.needsReview && (
+        <p className="mt-3 text-xs text-muted-foreground">
+          Description to review against the live project.
+        </p>
+      )}
+      <a
+        href={project.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-5 inline-flex min-h-10 items-center gap-2 self-start text-sm font-semibold text-accent transition-colors hover:text-foreground"
+      >
+        Visit Website
+        <ExternalLink className="h-4 w-4" aria-hidden="true" />
+      </a>
+    </div>
+  </article>
+);
+
+const Projects = () => {
+  const [activeCategory, setActiveCategory] = useState<FilterCategory>("All");
+  const visibleProjects =
+    activeCategory === "All"
+      ? projects
+      : projects.filter((project) => project.category === activeCategory);
+
+  return (
+    <>
+      <PageMeta
+        title="Projects"
+        description="Explore ATEXRA's delivered work and sample offerings in web development, AI, and automation."
+      />
+      <main className="page-shell px-5 sm:px-8">
+        <section className="mx-auto max-w-7xl">
+          <div className="max-w-3xl">
+            <p className="font-mono-tech text-xs uppercase tracking-[0.18em] text-accent">
+              Selected work & offerings
+            </p>
+            <h1 className="mt-3 font-heading text-4xl font-semibold tracking-tight sm:text-5xl">
+              Projects
+            </h1>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
+              A delivered project alongside examples of the kinds of digital experiences ATEXRA
+              can offer. Sample offerings are not presented as delivered client work.
+            </p>
+          </div>
+
+          <div className="mt-8 flex flex-wrap gap-2" role="group" aria-label="Filter projects">
+            {categories.map((category) => (
+              <button
+                type="button"
+                key={category}
+                aria-pressed={activeCategory === category}
+                onClick={() => setActiveCategory(category)}
+                className={`min-h-10 rounded-full border px-4 text-sm font-medium transition-colors ${
+                  activeCategory === category
+                    ? "border-accent bg-accent text-accent-foreground"
+                    : "border-border bg-card text-muted-foreground hover:border-accent/50 hover:text-foreground"
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+
+          <div
+            className="mt-7 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6"
+            aria-live="polite"
+          >
+            {visibleProjects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
+        </section>
+      </main>
+    </>
   );
 };
 

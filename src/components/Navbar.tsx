@@ -1,134 +1,157 @@
-import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, Moon, Sun, X } from "lucide-react";
+import { siteConfig } from "@/config/siteConfig";
+import banner from "@/assets/banner.png";
 
 const navLinks = [
-  { label: "Home", href: "/#home" },
-  { label: "About", href: "/#about" },
-  { label: "Pricing", href: "/#pricing" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Projects", href: "/projects" },
 ];
 
-const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
+interface NavbarProps {
+  theme: "dark" | "light";
+  onToggleTheme: () => void;
+}
+
+const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    const sections = navLinks
-      .map((link) => document.getElementById(link.href.split("#")[1]))
-      .filter((section): section is HTMLElement => section !== null);
-    const sectionObserver = new IntersectionObserver(
-      (entries) => {
-        const current = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
-        if (current) setActiveSection(current.target.id);
-      },
-      { rootMargin: "-15% 0px -70% 0px" }
-    );
-
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    sections.forEach((section) => sectionObserver.observe(section));
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      sectionObserver.disconnect();
-    };
-  }, []);
-
+  const location = useLocation();
   const closeMenu = () => setMobileOpen(false);
-  const isActiveLink = (href: string) => activeSection === href.split("#")[1];
+  const isActive = (href: string) =>
+    href === "/" ? location.pathname === "/" : location.pathname.startsWith(href);
 
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
-      <div
-        className={`surface-nav mx-auto flex w-full max-w-7xl items-center justify-between gap-5 rounded-xl border px-4 py-3 transition-shadow duration-300 sm:px-6 ${
-          scrolled ? "shadow-[0_8px_28px_-18px_hsl(var(--foreground)/0.38)]" : "shadow-sm"
-        }`}
-      >
-        <a
-          href="/#home"
-          className="flex shrink-0 items-center gap-2.5"
-          aria-label="Atexra home"
+    <header className="fixed inset-x-0 top-0 z-40 px-3 pt-3 sm:px-5 sm:pt-5">
+      <nav className="surface-nav mx-auto flex w-full max-w-7xl items-center justify-between gap-2 rounded-2xl border border-border/80 px-3 py-2.5 shadow-[0_12px_42px_-26px_hsl(var(--accent)/0.55)] backdrop-blur-xl sm:gap-4 sm:px-5">
+        <Link
+          to="/"
+          className="flex h-10 w-[120px] shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white"
+          aria-label="ATEXRA home"
           onClick={closeMenu}
         >
-          <img src="/atexra.svg" alt="" className="h-9 w-9" />
-          <span className="font-heading text-lg font-bold tracking-tight text-foreground">
-            Atexra
-          </span>
-        </a>
+          <img
+            src={banner}
+            alt="ATEXRA"
+            className="h-auto w-[160px] max-w-none shrink-0"
+          />
+        </Link>
 
-        <ul className="hidden items-center gap-1 md:flex">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                aria-current={isActiveLink(link.href) ? "location" : undefined}
-                className={`relative rounded-lg px-3.5 py-2 text-sm font-medium transition-colors after:absolute after:bottom-1.5 after:left-3.5 after:right-3.5 after:h-0.5 after:rounded-full after:bg-accent after:transition-transform ${
-                  isActiveLink(link.href)
-                    ? "text-violet-deep after:scale-x-100"
-                    : "text-muted-foreground after:scale-x-0 hover:bg-secondary hover:text-foreground hover:after:scale-x-100"
+        <ul className="hidden items-center gap-0.5 xl:flex">
+          {navLinks.map(({ label, href }) => (
+            <li key={href}>
+              <Link
+                to={href}
+                aria-current={isActive(href) ? "page" : undefined}
+                className={`rounded-xl px-3 py-2 text-[13px] font-medium transition-all ${
+                  isActive(href)
+                    ? "bg-accent/10 text-accent shadow-sm"
+                    : "text-muted-foreground hover:bg-secondary hover:text-foreground"
                 }`}
               >
-                {link.label}
-              </a>
+                {label}
+              </Link>
             </li>
           ))}
+          <li>
+            <Link
+              to="/contact"
+              aria-current={location.pathname === "/contact" ? "page" : undefined}
+              className={`rounded-xl px-3 py-2 text-[13px] font-medium transition-all ${
+                location.pathname === "/contact"
+                  ? "bg-accent/10 text-accent shadow-sm"
+                  : "text-muted-foreground hover:bg-secondary hover:text-foreground"
+              }`}
+              onClick={closeMenu}
+            >
+              Contact
+            </Link>
+          </li>
         </ul>
 
-        <a
-          href="/#contact"
-          className="hidden shrink-0 items-center rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground transition-colors hover:bg-violet-deep md:inline-flex"
-        >
-          Start a project
-        </a>
-
-        <button
-          type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-white text-foreground transition-colors hover:bg-secondary md:hidden"
-          onClick={() => setMobileOpen((open) => !open)}
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          aria-expanded={mobileOpen}
-          aria-controls="mobile-navigation"
-        >
-          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
-      </div>
+        <div className="flex shrink-0 items-center gap-1.5">
+          <button
+            type="button"
+            onClick={onToggleTheme}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border text-foreground transition-colors hover:bg-secondary"
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+            title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+          >
+            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+          <a
+            href={siteConfig.bookCallUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden min-h-10 items-center rounded-xl bg-accent px-4 text-sm font-semibold text-accent-foreground transition-transform hover:-translate-y-0.5 sm:inline-flex"
+          >
+            Book a Call
+          </a>
+          <button
+            type="button"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border text-foreground transition-colors hover:bg-secondary xl:hidden"
+            onClick={() => setMobileOpen((open) => !open)}
+            aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation"
+          >
+            {mobileOpen ? <X size={19} /> : <Menu size={19} />}
+          </button>
+        </div>
+      </nav>
 
       {mobileOpen && (
         <div
           id="mobile-navigation"
-          className="surface-nav mx-4 mt-2 rounded-xl border p-3 shadow-lg md:hidden"
+          className="surface-nav mx-auto mt-2 max-w-7xl rounded-2xl border border-border/80 p-3 shadow-lg backdrop-blur-xl xl:hidden"
         >
-          <ul className="flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  aria-current={isActiveLink(link.href) ? "location" : undefined}
-                  className={`block rounded-lg px-4 py-3 text-sm font-medium transition-colors hover:bg-secondary ${
-                    isActiveLink(link.href) ? "bg-secondary text-violet-deep" : "text-foreground"
+          <ul className="grid gap-1 sm:grid-cols-2">
+            {navLinks.map(({ label, href }) => (
+              <li key={href}>
+                <Link
+                  to={href}
+                  aria-current={isActive(href) ? "page" : undefined}
+                  className={`block rounded-xl px-4 py-3 text-sm font-medium transition-all ${
+                    isActive(href)
+                      ? "bg-accent/10 text-accent"
+                      : "text-foreground hover:bg-secondary"
                   }`}
                   onClick={closeMenu}
                 >
-                  {link.label}
-                </a>
+                  {label}
+                </Link>
               </li>
             ))}
-            <li className="border-t border-border pt-2">
-              <a
-                href="/#contact"
-                className="block rounded-lg bg-accent px-4 py-3 text-center text-sm font-semibold text-accent-foreground"
+            <li>
+              <Link
+                to="/contact"
+                aria-current={location.pathname === "/contact" ? "page" : undefined}
+                className={`block w-full rounded-xl px-4 py-3 text-left text-sm font-medium transition-colors ${
+                  location.pathname === "/contact"
+                    ? "bg-accent/10 text-accent"
+                    : "text-foreground hover:bg-secondary"
+                }`}
                 onClick={closeMenu}
               >
-                Start a project
+                Contact
+              </Link>
+            </li>
+            <li className="sm:col-span-2">
+              <a
+                href={siteConfig.bookCallUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-xl bg-accent px-4 py-3 text-center text-sm font-semibold text-accent-foreground"
+                onClick={closeMenu}
+              >
+                Book a Call
               </a>
             </li>
           </ul>
         </div>
       )}
-    </nav>
+    </header>
   );
 };
 

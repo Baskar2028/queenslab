@@ -1,132 +1,135 @@
-import { useEffect, useRef, useState } from "react";
-import { Check, ArrowRight, Sparkles, GraduationCap } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { siteConfig } from "@/config/siteConfig";
+import PageMeta from "@/components/PageMeta";
 
-const FORM_URL = "https://docs.google.com/forms/d/17YJBQXJHkfELS56bJmzXUW0pPLHzZm3K-cufoUu7-kE/edit";
-
-const mainPlans = [
+const websitePlans = [
   {
-    name: "Starter",
-    price: "2,999",
-    tagline: "Perfect launchpad for new brands",
+    name: "Starter Website",
+    price: "₹2,999",
+    description:
+      "A budget-friendly starting point for businesses looking to establish their online presence.",
+    badge: null,
     features: [
-      "2 Pages",
-      "WhatsApp Connect (Click & Book)",
-      "Contact Form",
-      "Mobile Optimization",
-      "Basic SEO Setup",
+      "2 pages",
+      "WhatsApp connect (click & book)",
+      "Contact form",
+      "Mobile optimization",
     ],
-    popular: false,
   },
   {
-    name: "Standard",
-    price: "5,999",
-    tagline: "Most loved by growing businesses",
+    name: "Business Website",
+    price: "₹5,999",
+    description:
+      "A professional website solution for businesses looking to strengthen their online presence and grow.",
+    badge: "MOST POPULAR",
     features: [
-      "4 Pages",
-      "Automatic Mail System",
-      "Contact Form",
-      "Secure Payment Gateway Integration",
-      "Mobile Optimization",
+      "4 pages",
+      "Automatic mail system",
+      "Contact form",
+      "Secure payment gateway integration",
+      "Mobile optimization",
     ],
-    popular: true,
   },
-  // {
-  //   name: "Premium",
-  //   price: "14,999",
-  //   tagline: "Full-scale e-commerce experience",
-  //   features: [
-  //     "Modern Responsive website",
-  //     "Database integration",
-  //     "SEO setup",
-  //     "Admin Dashboard",
-  //     "Deployment support",
-  //     "AI chabot integrated"
-  //   ],
-  //   popular: false,
-  // },
 ];
 
+interface PricingProps {
+  compact?: boolean;
+}
 
-const Pricing = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+const Pricing = ({ compact = false }: PricingProps) => (
+  <>
+    {!compact && (
+      <PageMeta
+        title="Pricing"
+        description="Explore ATEXRA website package pricing. Pricing is available as simple starting plans for website development."
+      />
+    )}
+    <div className={compact ? "" : "page-shell"}>
+      <section id="pricing" className="px-5 py-20 sm:px-8 sm:py-24">
+        <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="font-mono-tech text-xs uppercase tracking-[0.18em] text-accent">
+              Simple Pricing
+            </p>
+            <h1 className="mt-3 font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
+              Clear plans for your next step.
+            </h1>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              Clear starting prices for websites designed to strengthen your online presence and help your business grow.
+            </p>
+          </div>
 
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) setVisible(true); },
-      { threshold: 0.1 }
-    );
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-
-  return (
-    <section id="pricing" className="py-24 px-6 bg-muted/20" ref={ref}>
-      <div className="container mx-auto max-w-6xl">
-        <p className="font-mono-tech text-xs text-accent text-center tracking-[0.3em] uppercase mb-3">// pricing</p>
-        <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-2">
-          Simple <span className="text-gradient accent-underline">Pricing</span>
-        </h2>
-        <p className="font-mono-tech text-xs text-accent text-center tracking-[0.2em] uppercase mb-4">Limited Offer</p>
-        <div className="w-16 h-1 bg-accent mx-auto rounded-full mb-14" />
-
-        {/* Main 3 cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-          {mainPlans.map((plan, i) => (
-            <div
-              key={plan.name}
-              className={`surface-card relative flex flex-col rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 sm:p-7 ${
-                plan.popular
-                  ? "border-accent/60 shadow-[0_0_50px_hsl(var(--accent)/0.25)] md:scale-[1.04]"
-                  : "hover:border-accent/40"
-              } ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-              style={{ transitionDelay: `${i * 120}ms` }}
-            >
-              {plan.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-accent text-accent-foreground font-mono-tech text-[11px] font-bold tracking-widest uppercase shadow-lg shadow-accent/40">
-                  <Sparkles className="w-3.5 h-3.5" /> Most Popular
-                </div>
-              )}
-
-              <h3 className="font-heading text-xl font-semibold text-foreground mb-1">{plan.name}</h3>
-              <p className="text-xs text-muted-foreground mb-5">{plan.tagline}</p>
-
-              <div className="flex items-baseline gap-1 mb-6">
-                <span className="font-heading text-xl font-bold text-accent sm:text-2xl">Rs.</span>
-                <span className="font-heading text-4xl font-extrabold text-foreground tracking-tight sm:text-5xl">{plan.price}</span>
-                <span className="ml-1 text-sm text-muted-foreground sm:text-base">/-</span>
-              </div>
-
-              <ul className="space-y-3 mb-8 flex-1">
-                {plan.features.map((f) => (
-                  <li key={f} className="flex items-start gap-3 text-sm text-muted-foreground">
-                    <span className="mt-0.5 w-5 h-5 rounded-full bg-accent/15 flex items-center justify-center shrink-0">
-                      <Check className="w-3 h-3 text-accent" strokeWidth={3} />
-                    </span>
-                    <span>{f}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href={FORM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`group inline-flex items-center justify-center gap-2 w-full px-6 py-3 rounded-xl font-heading font-semibold transition-all ${
-                  plan.popular
-                    ? "bg-accent text-accent-foreground glow-button hover:scale-[1.02]"
-                    : "border border-accent/40 text-foreground hover:bg-accent/10 hover:border-accent"
+          <div className="mt-10 grid gap-5 lg:grid-cols-2">
+            {websitePlans.map((plan) => (
+              <article
+                key={plan.name}
+                className={`surface-card relative flex h-full flex-col rounded-[1.75rem] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-[0_22px_46px_-32px_hsl(var(--accent)/0.7)] sm:p-8 ${
+                  plan.badge ? "border-accent/40" : ""
                 }`}
               >
-                Get Started <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
-          ))}
-        </div>
+                {plan.badge ? (
+                  <div className="absolute -top-3 right-6 rounded-full bg-accent px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-foreground shadow-md">
+                    {plan.badge}
+                  </div>
+                ) : null}
 
-      </div>
-    </section>
-  );
-};
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="font-mono-tech text-[10px] uppercase tracking-[0.18em] text-accent">
+                      Website development
+                    </p>
+                    <h2 className="mt-3 font-heading text-xl font-semibold text-foreground sm:text-2xl">
+                      {plan.name}
+                    </h2>
+                  </div>
+                </div>
+
+                <div className="mt-6 flex items-end gap-2">
+                  <span className="font-heading text-4xl font-bold tracking-tight text-foreground">
+                    {plan.price}
+                  </span>
+                  <span className="pb-1 text-sm text-muted-foreground">starting price</span>
+                </div>
+
+                <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{plan.description}</p>
+
+                <ul className="mt-6 space-y-3">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-3 text-sm text-muted-foreground">
+                      <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-accent" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href={siteConfig.bookCallUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-accent px-4 text-sm font-semibold text-accent-foreground transition-transform hover:-translate-y-0.5"
+                >
+                  Choose this plan
+                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+              </article>
+            ))}
+          </div>
+
+          {compact && (
+            <div className="mt-8 text-center">
+              <Link
+                to="/pricing"
+                className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-border px-5 text-sm font-semibold transition-colors hover:border-accent/50 hover:bg-secondary"
+              >
+                View pricing <ArrowUpRight className="h-4 w-4 text-accent" />
+              </Link>
+            </div>
+          )}
+        </div>
+      </section>
+    </div>
+  </>
+);
 
 export default Pricing;

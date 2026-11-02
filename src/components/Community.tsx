@@ -51,7 +51,7 @@ const Community = () => {
     <section id="community" className="py-24 px-6" ref={ref}>
       <div className="container mx-auto max-w-6xl">
         <p className="font-mono-tech text-xs text-accent text-center tracking-[0.3em] uppercase mb-3">// community</p>
-        <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-4">
+        <h2 className="text-2xl md:text-3xl font-heading font-semibold text-center mb-4">
           Meet Our <span className="text-gradient accent-underline">Team</span>
         </h2>
         <div className="w-16 h-1 bg-accent mx-auto rounded-full mb-14" />
@@ -86,7 +86,7 @@ const Community = () => {
                   />
                 </div>
 
-                <h3 className="font-heading font-bold text-2xl text-foreground">{m.name}</h3>
+                <h3 className="font-heading font-semibold text-xl text-foreground">{m.name}</h3>
                 <p className="font-mono-tech text-sm text-accent mt-1 mb-4">{m.role}</p>
 
                 <p className="text-muted-foreground text-sm leading-relaxed mb-5">{m.desc}</p>
