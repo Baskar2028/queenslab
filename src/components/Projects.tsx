@@ -4,7 +4,7 @@ import kvSkyTurfPreview from "@/assets/delivers-kvskyturf.png";
 import PageMeta from "@/components/PageMeta";
 import fashionimage from "@/assets/fashion.png";
 import pixelperfectstudio from "@/assets/pixel-perfect-studio.png";
-import queensgift from "@/assets/queensgift.png";
+import queensgiftf from "@/assets/queensgift.png";
 type ProjectCategory = "Delivered" | "Also Offer" | "AI & Automation";
 type FilterCategory = "All" | ProjectCategory;
 
