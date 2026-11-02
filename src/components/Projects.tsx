@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ExternalLink } from "lucide-react";
 import kvSkyTurfPreview from "@/assets/delivers-kvskyturf.png";
 import PageMeta from "@/components/PageMeta";
+import fashion from "@/assets/fashion.png";
 
 type ProjectCategory = "Delivered" | "Also Offer" | "AI & Automation";
 type FilterCategory = "All" | ProjectCategory;
@@ -37,7 +38,7 @@ const projects: Project[] = [
     description: "A sample website offering for a project named Pixel Perfect Studio.",
     url: "https://pixel-perfect-studio-w6t4.vercel.app/",
     needsReview: true,
-    
+
   },
   {
     id: "fashion-website",
