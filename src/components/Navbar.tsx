@@ -33,7 +33,7 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
           aria-label="ATEXRA home"
           onClick={closeMenu}
         >
-          <img
+  <img
   src={theme === "dark" ? bannerDark : bannerLight}
   alt="ATEXRA"
   className="h-auto w-[160px] max-w-none shrink-0"
