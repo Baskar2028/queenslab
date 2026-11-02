@@ -7,7 +7,7 @@ import {
   MessageSquareText,
 } from "lucide-react";
 import { siteConfig } from "@/config/siteConfig";
-
+import logo from "@/assets/logo.png";
 const socials = [
   { icon: Instagram, label: "Instagram", href: siteConfig.instagram },
   { icon: Linkedin, label: "LinkedIn", href: siteConfig.founderLinkedIn },
@@ -96,7 +96,7 @@ const Contact = () => (
             </span>
 
             <span className="font-mono-tech text-xs text-muted-foreground">
-              v1.0
+              v2.0
             </span>
           </div>
 
