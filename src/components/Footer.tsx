@@ -6,7 +6,11 @@ const Footer = () => (
     <div className="mx-auto grid max-w-7xl gap-8 sm:grid-cols-[1.3fr_1fr_1fr]">
       <div>
         <Link to="/" className="inline-flex items-center gap-2" aria-label="ATEXRA home">
-          <img src="/atexra.svg" alt="ATEXRA logo" className="h-8 w-8" />
+                     <img
+  src={logo}
+  alt="ATEXRA Logo"
+  className="h-14 w-14 object-contain"
+/>
           <span className="font-heading text-lg font-bold tracking-tight">ATEXRA</span>
         </Link>
         <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">
