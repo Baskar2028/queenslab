@@ -6,6 +6,7 @@ import fashionimage from "@/assets/fashion.png";
 import pixelperfectstudio from "@/assets/pixel-perfect-studio.png";
 import queensgift from "@/assets/queensgift.png";
 import mscodegym from "@/assets/ms-code-gym.png";
+import majestica from "@/assets/majestica.png";
 type ProjectCategory = "Delivered" | "Also Offer" | "AI & Automation";
 type FilterCategory = "All" | ProjectCategory;
 
@@ -77,7 +78,8 @@ const projects: Project[] = [
     description:
       "An example digital project. Its purpose and available AI or automation functionality should be confirmed before publication.",
     url: "https://majestica-frontend.vercel.app/",
-    needsReview: true,
+    image:majestica,
+    imageAlt:"Website Preview of Majestica Website"
   },
 ];
 
