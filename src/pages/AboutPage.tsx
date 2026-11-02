@@ -62,7 +62,7 @@ const AboutPage = () => {
               The person behind ATEXRA
             </p>
             <h1             className="mt-4 font-heading text-3xl font-semibold tracking-tight sm:text-4xl">
-              I’m Baskar
+              Introducing Baskar
             </h1>
             <p
               className="mt-4 min-h-14 font-heading text-xl font-medium text-accent sm:min-h-8 sm:text-2xl"
