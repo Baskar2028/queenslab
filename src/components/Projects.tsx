@@ -48,6 +48,7 @@ const projects: Project[] = [
     description: "A sample website offering for a fashion-focused project.",
     url: "https://fashionsite-one.vercel.app/",
     image: fashionimage,
+    imageAlt:"Website Preview of Fashion Website"
   },
   {
     id: "queens-gift-boutique",
