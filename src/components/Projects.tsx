@@ -37,7 +37,8 @@ const projects: Project[] = [
     category: "Also Offer",
     description: "A sample website offering for a project named Pixel Perfect Studio.",
     url: "https://pixel-perfect-studio-w6t4.vercel.app/",
-    needsReview: true,
+    image: fashionimage,
+    imageAlt: "Website Preview of Pixel Perfect Studio"
 
   },
   {
