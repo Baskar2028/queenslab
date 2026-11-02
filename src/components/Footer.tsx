@@ -35,13 +35,7 @@ const Footer = () => (
         </ul>
       </div>
       <div>
-        <h2 className="font-heading text-sm font-semibold">Get in touch</h2>
-        <a
-          className="mt-3 inline-block text-sm text-muted-foreground transition-colors hover:text-accent"
-          href={`mailto:${siteConfig.contactEmail}`}
-        >
-          {siteConfig.contactEmail}
-        </a>
+        
       </div>
     </div>
     <div className="mx-auto mt-8 max-w-7xl border-t border-border pt-5 text-xs text-muted-foreground">
