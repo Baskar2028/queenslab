@@ -111,7 +111,7 @@ const Contact = () => (
 
           {/* Agency Details */}
           <h3 className="mt-6 font-heading text-2xl font-bold text-foreground">
-            
+            q
           </h3>
 
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
