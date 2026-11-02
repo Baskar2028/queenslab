@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { siteConfig } from "@/config/siteConfig";
-
+import logo from "@/assets/logo.png";
 const Footer = () => (
   <footer className="border-t border-border bg-card/60 px-5 py-10 sm:px-8">
     <div className="mx-auto grid max-w-7xl gap-8 sm:grid-cols-[1.3fr_1fr_1fr]">
