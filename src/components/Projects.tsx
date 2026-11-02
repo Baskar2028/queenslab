@@ -5,6 +5,7 @@ import PageMeta from "@/components/PageMeta";
 import fashionimage from "@/assets/fashion.png";
 import pixelperfectstudio from "@/assets/pixel-perfect-studio.png";
 import queensgift from "@/assets/queensgift.png";
+import mscodegym from "@/assets/ms-code-gym.png";
 type ProjectCategory = "Delivered" | "Also Offer" | "AI & Automation";
 type FilterCategory = "All" | ProjectCategory;
 
@@ -66,7 +67,8 @@ const projects: Project[] = [
     category: "Also Offer",
     description: "The live page identifies this offering as Ms.Code Gym; details need review.",
     url: "https://mscodegym.netlify.app/",
-    needsReview: true,
+    image:mscodegym,
+    imageAlt:"Website Preview of ms code gym Website"
   },
   {
     id: "majestica",
