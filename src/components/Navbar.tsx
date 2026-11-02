@@ -29,7 +29,7 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
       <nav className="surface-nav mx-auto flex w-full max-w-7xl items-center justify-between gap-2 rounded-2xl border border-border/80 px-3 py-2.5 shadow-[0_12px_42px_-26px_hsl(var(--accent)/0.55)] backdrop-blur-xl sm:gap-4 sm:px-5">
         <Link
           to="/"
-          className="flex h-10 w-[120px] shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white"
+          className="flex h-10 w-[160px] shrink-0 items-center justify-center overflow-hidden"
           aria-label="ATEXRA home"
           onClick={closeMenu}
         >
