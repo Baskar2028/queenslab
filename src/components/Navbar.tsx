@@ -2,7 +2,9 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { siteConfig } from "@/config/siteConfig";
-import banner from "@/assets/banner.png";
+import bannerDark from "../assets/banner-dark.png";
+import bannerLight from "../assets/banner-light.png";
+
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -32,7 +34,7 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
           onClick={closeMenu}
         >
           <img
-            src={banner}
+            src={theme === "dark" ? banner-dark : banner-light}
             alt="ATEXRA"
             className="h-auto w-[160px] max-w-none shrink-0"
           />
