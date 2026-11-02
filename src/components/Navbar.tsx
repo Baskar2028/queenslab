@@ -34,10 +34,10 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
           onClick={closeMenu}
         >
           <img
-            src={theme === "dark" ? banner-dark : banner-light}
-            alt="ATEXRA"
-            className="h-auto w-[160px] max-w-none shrink-0"
-          />
+  src={theme === "dark" ? bannerDark : bannerLight}
+  alt="ATEXRA"
+  className="h-auto w-[160px] max-w-none shrink-0"
+/>
         </Link>
 
         <ul className="hidden items-center gap-0.5 xl:flex">
