@@ -103,7 +103,7 @@ const Contact = () => (
           {/* Agency Logo */}
           <div className="mt-6">
             <img
-              src="/atexra.svg"
+              src="/logo.png"
               alt="ATEXRA Logo"
               className="h-14 w-14 object-contain"
             />
