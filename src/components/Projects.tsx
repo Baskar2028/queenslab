@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ExternalLink } from "lucide-react";
 import kvSkyTurfPreview from "@/assets/delivers-kvskyturf.png";
 import PageMeta from "@/components/PageMeta";
-import fashion from "@/assets/fashion.png";
+import fashionimage from "@/assets/fashion.png";
 
 type ProjectCategory = "Delivered" | "Also Offer" | "AI & Automation";
 type FilterCategory = "All" | ProjectCategory;
