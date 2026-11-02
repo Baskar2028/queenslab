@@ -14,7 +14,7 @@ const Footer = () => (
           <span className="font-heading text-lg font-bold tracking-tight"></span>
         </Link>
         <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">
-          Intelligent digital solutions. Modern websites, web applications, and thoughtful automation.
+          Build to build for you
         </p>
       </div>
       <div>
