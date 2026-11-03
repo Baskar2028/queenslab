@@ -5,13 +5,15 @@ const Footer = () => (
   <footer className="border-t border-border bg-card/60 px-5 py-10 sm:px-8">
     <div className="mx-auto grid max-w-7xl gap-8 sm:grid-cols-[1.3fr_1fr_1fr]">
       <div>
-        <Link to="/" className="inline-flex items-center gap-2" aria-label="ATEXRA home">
-                     <img
-  src={logo}
-  alt="ATEXRA Logo"
-  className="h-14 w-14 object-contain"
-/>
-          <span className="font-heading text-lg font-bold tracking-tight"></span>
+        <Link to="/" className="inline-flex items-center gap-3" aria-label="ATEXRA home">
+          <img
+            src={logo}
+            alt=""
+            className="h-14 w-14 object-contain"
+          />
+          <span className="font-heading text-lg font-bold tracking-tight text-foreground">
+            ATEXRA
+          </span>
         </Link>
         <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">
           Build to build for you

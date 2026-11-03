@@ -74,12 +74,12 @@ const Contact = () => (
           <div className="mt-12 inline-flex w-fit max-w-full flex-wrap items-center gap-3 rounded-full border border-border bg-card px-4 py-3 text-sm">
             <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-accent" />
 
-            <MapPin className="h-4 w-4 shrink-0 text-accent" />
+            {/* <MapPin className="h-4 w-4 shrink-0 text-accent" /> */}
 
             <span className="text-muted-foreground">
               Located in{" "}
               <span className="font-mono-tech font-semibold text-accent">
-                India | Tamil Nadu | Tirupattur
+               Thirupattur | Vaniyambadi
               </span>
             </span>
           </div>
@@ -101,19 +101,18 @@ const Contact = () => (
           </div>
 
           {/* Agency Logo */}
-          <div className="mt-6">
+          <div className="mt-6 flex items-center gap-3">
             <img
-  src={logo}
-  alt="ATEXRA Logo"
-  className="h-14 w-14 object-contain"
-/>
+              src={logo}
+              alt="ATEXRA Logo"
+              className="h-14 w-14 object-contain"
+            />
+            <span className="font-heading text-lg font-bold tracking-tight text-foreground">
+              ATEXRA
+            </span>
           </div>
 
           {/* Agency Details */}
-          <h3 className="mt-6 font-heading text-2xl font-bold text-foreground">
-            
-          </h3>
-
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
             We will reach you within fews hours after you filled our form
           </p>

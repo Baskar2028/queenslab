@@ -1,37 +1,35 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { UserCircle2, ArrowUpRight } from "lucide-react";
+import { UserCircle2, ArrowUpRight, SearchCheck } from "lucide-react";
 import founderImg from "@/assets/founder.jpeg";
+import developerImg from "@/assets/Deepak.jpeg";
 import cofounderImg from "@/assets/cofounder.png";
-import foundImg from "@/assets/Deepak.jpeg"
-
 
 const members = [
   {
     name: "Baskar",
-    role: "Lead Developer",
+    role: "Founder",
     image: founderImg,
-    href: "/leaddeveloper",
+    href: "/about",
     desc: "Skilled in programming languages C, C++, Python, Java, JavaScript, React JS, MongoDB | frameworks: Tailwind CSS, Flask |  APIs and Networking ,Linux.",
     skills: ["C", "C++", "Python", "Java", "JavaScript",  "Nextjs","MongoDB", "Tailwind", "Flask", "APIs", "Linux"],
   },
   {
-    name:"Deepak",
-    role:"Developer",
-    image:foundImg,
-    href:"/developer",
-    desc:"Skilled in programming languages C,C++,Python,Java,JavaScript, React Js, MySQL | frameworks:Bootstrap , Flask |APIs and  OS like Linux",
-    skills:["C", "C++", "Python", "Java", "JavaScript", "React", "MySQL",  "Flask","Bootstrap", "APIs", "Linux"]
+    name: "Deepak",
+    role: "Developer",
+    image: developerImg,
+    href: "/developer",
+    desc: "Skilled in programming languages C, C++, Python, Java, and JavaScript, as well as React, MySQL, Flask, APIs, and Linux.",
+    skills: ["C", "C++", "Python", "Java", "JavaScript", "React", "MySQL", "Flask", "APIs", "Linux"],
   },
   {
-    name: "Rishikesh Ragav",
-    role: "DevOps & QA Enginner",
+    name: "SEO Optimizer",
+    role: "SEO Specialist",
     image: cofounderImg,
-    href: "/tester",
-    desc: "Skilled in Wireshark, Nmap, HTTP/DNS traffic analysis, port scanning, network reconnaissance, and programming in JavaScript, C, and Python.",
-    skills: ["Wireshark", "Nmap", "HTTP/DNS", "Port Scanning", "Recon", "JavaScript", "C", "Python"],
+    href: "/seo-specialist",
+    desc: "Focused on helping websites improve their search visibility through technical SEO, on-page improvements, and content optimization.",
+    skills: ["Technical SEO", "On-page SEO", "Keyword Research", "Content"],
   },
-  
 ];
 
 const Community = () => {
@@ -52,7 +50,7 @@ const Community = () => {
       <div className="container mx-auto max-w-6xl">
         <p className="font-mono-tech text-xs text-accent text-center tracking-[0.3em] uppercase mb-3">// community</p>
         <h2 className="text-2xl md:text-3xl font-heading font-semibold text-center mb-4">
-          Meet Our <span className="text-gradient accent-underline">Team</span>
+          Minds Behind<span className="text-gradient accent-underline"> Atexra</span>
         </h2>
         <div className="w-16 h-1 bg-accent mx-auto rounded-full mb-14" />
 
@@ -76,14 +74,20 @@ const Community = () => {
 
               <div className="flex flex-col items-center text-center">
                 <div className="relative mb-5">
-                  <img
-                    src={m.image}
-                    alt={m.name}
-                    loading="lazy"
-                    width={768}
-                    height={768}
-                    className="relative h-32 w-32 rounded-full border-2 border-border object-cover transition-colors group-hover:border-accent"
-                  />
+                  {m.image ? (
+                    <img
+                      src={m.image}
+                      alt={m.name}
+                      loading="lazy"
+                      width={768}
+                      height={768}
+                      className="relative h-32 w-32 rounded-full border-2 border-border object-cover transition-colors group-hover:border-accent"
+                    />
+                  ) : (
+                    <div className="relative flex h-32 w-32 items-center justify-center rounded-full border-2 border-border bg-accent/10 text-accent transition-colors group-hover:border-accent">
+                      <SearchCheck className="h-12 w-12" aria-hidden="true" />
+                    </div>
+                  )}
                 </div>
 
                 <h3 className="font-heading font-semibold text-xl text-foreground">{m.name}</h3>

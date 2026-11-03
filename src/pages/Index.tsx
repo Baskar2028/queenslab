@@ -1,7 +1,7 @@
 import Hero from "@/components/Hero";
 import Pricing from "@/components/Pricing";
-import Delivers from "@/components/Delivers";
 import HomeFaq from "@/components/HomeFaq";
+import Community from "@/components/Community";
 import Reviews from "@/components/Reviews";
 import Contact from "@/components/Contact";
 import { Link } from "react-router-dom";
@@ -36,8 +36,8 @@ const Index = () => {
           </div>
         </section>
         <Pricing compact />
-        <Delivers />
         <HomeFaq />
+        <Community />
         <Reviews />
         <Contact />
       </main>

@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { siteConfig } from "@/config/siteConfig";
-import bannerDark from "../assets/banner-dark.png";
 import bannerLight from "../assets/banner-light.png";
 
 
@@ -12,32 +11,60 @@ const navLinks = [
   { label: "Projects", href: "/projects" },
 ];
 
-interface NavbarProps {
-  theme: "dark" | "light";
-  onToggleTheme: () => void;
-}
-
-const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
+const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const lastScrollY = useRef(0);
   const location = useLocation();
   const closeMenu = () => setMobileOpen(false);
   const isActive = (href: string) =>
     href === "/" ? location.pathname === "/" : location.pathname.startsWith(href);
 
+  useEffect(() => {
+    lastScrollY.current = window.scrollY;
+    setVisible(true);
+  }, [location.key]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollDifference = currentScrollY - lastScrollY.current;
+
+      if (currentScrollY <= 24) {
+        setVisible(true);
+      } else if (mobileOpen || scrollDifference < -4) {
+        setVisible(true);
+      } else if (scrollDifference > 4 && currentScrollY > 80) {
+        setVisible(false);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [mobileOpen]);
+
   return (
-    <header className="fixed inset-x-0 top-0 z-40 px-3 pt-3 sm:px-5 sm:pt-5">
+    <header
+      className={`fixed inset-x-0 top-0 z-40 px-3 pt-3 transition-[transform,opacity] duration-300 ease-out motion-reduce:transition-none sm:px-5 sm:pt-5 ${
+        visible || mobileOpen
+          ? "translate-y-0 opacity-100"
+          : "pointer-events-none -translate-y-full opacity-0"
+      }`}
+    >
       <nav className="surface-nav mx-auto flex w-full max-w-7xl items-center justify-between gap-2 rounded-2xl border border-border/80 px-3 py-2.5 shadow-[0_12px_42px_-26px_hsl(var(--accent)/0.55)] backdrop-blur-xl sm:gap-4 sm:px-5">
         <Link
           to="/"
-          className="flex h-10 w-[160px] shrink-0 items-center justify-center overflow-hidden"
+          className="group flex h-10 w-[160px] shrink-0 items-center justify-center overflow-hidden"
           aria-label="ATEXRA home"
           onClick={closeMenu}
         >
-  <img
-  src={theme === "dark" ? bannerDark : bannerLight}
-  alt="ATEXRA"
-  className="h-auto w-[160px] max-w-none shrink-0"
-/>
+          <img
+            src={bannerLight}
+            alt="ATEXRA"
+            className="h-auto w-[160px] max-w-none shrink-0 transition-transform duration-300 ease-out group-hover:scale-[1.02]"
+          />
         </Link>
 
         <ul className="hidden items-center gap-0.5 xl:flex">
@@ -73,15 +100,6 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
         </ul>
 
         <div className="flex shrink-0 items-center gap-1.5">
-          <button
-            type="button"
-            onClick={onToggleTheme}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border text-foreground transition-colors hover:bg-secondary"
-            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-            title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-          >
-            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
           <a
             href={siteConfig.bookCallUrl}
             target="_blank"

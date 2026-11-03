@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ExternalLink } from "lucide-react";
+import { Bot, ExternalLink, Workflow, Code2 } from "lucide-react";
 import kvSkyTurfPreview from "@/assets/delivers-kvskyturf.png";
 import PageMeta from "@/components/PageMeta";
 import fashionimage from "@/assets/fashion.png";
@@ -22,6 +22,30 @@ interface Project {
 }
 
 const categories: FilterCategory[] = ["All", "Delivered", "Also Offer", "AI & Automation"];
+
+const services = [
+  {
+    number: "01",
+    title: "Websites",
+    description:
+      "Create modern, responsive and professional websites that establish a strong online presence and turn visitors into customers.",
+    icon: Code2,
+  },
+  {
+    number: "02",
+    title: "AI Chatbots",
+    description:
+      "Build intelligent AI-powered chatbots that engage customers, answer queries and provide automated assistance.",
+    icon: Bot,
+  },
+  {
+    number: "03",
+    title: "Automation",
+    description:
+      "Simplify repetitive business tasks with smart automation solutions that save time, improve efficiency and streamline workflows.",
+    icon: Workflow,
+  },
+];
 
 const projects: Project[] = [
   {
@@ -203,6 +227,48 @@ const Projects = () => {
               <ProjectCard key={project.id} project={project} />
             ))}
           </div>
+
+          <section className="mt-24 border-t border-border pt-14 sm:mt-28 sm:pt-16">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="font-mono-tech text-xs uppercase tracking-[0.18em] text-accent">
+                Our services
+              </p>
+              <h2 className="mt-3 font-heading text-3xl font-semibold tracking-tight sm:text-4xl">
+                What We <span className="text-accent">Offer</span>
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
+                Smart digital solutions designed to move your business forward.
+              </p>
+            </div>
+
+            <div className="mt-9 grid auto-rows-fr gap-5 md:grid-cols-3 lg:gap-6">
+              {services.map(({ number, title, description, icon: Icon }) => (
+                <article
+                  key={number}
+                  className="surface-card group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-[0_20px_45px_-30px_hsl(var(--accent)/0.6)] sm:p-7"
+                >
+                  <div
+                    className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-accent/50 to-accent transition-transform duration-300 group-hover:scale-x-100"
+                    aria-hidden="true"
+                  />
+                  <div className="flex items-start justify-between">
+                    <span className="font-mono-tech text-4xl font-semibold tracking-tight text-accent/60">
+                      {number}
+                    </span>
+                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-accent-foreground">
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                  </div>
+                  <h3 className="mt-7 font-heading text-xl font-semibold">
+                    <span className="text-accent">{title}</span>
+                  </h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                    {description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </section>
         </section>
       </main>
     </>

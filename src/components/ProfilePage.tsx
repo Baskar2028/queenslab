@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Phone, ArrowRight } from "lucide-react";
+import { ArrowLeft, Phone, ArrowRight, SearchCheck } from "lucide-react";
 import { useEffect } from "react";
 import { siteConfig } from "@/config/siteConfig";
 
 interface ProfilePageProps {
   name: string;
   role: string;
-  image: string;
+  image?: string;
   intro: string;
   paraTwo: string;
   paraThree: string;
@@ -31,12 +31,16 @@ const ProfilePage = ({ name, role, image, intro, paraTwo, paraThree }: ProfilePa
         <div className="grid items-start gap-12 lg:grid-cols-2">
           {/* Image with badge */}
           <div className="relative animate-fade-up">
-            <div className="relative mx-auto aspect-[3/4] max-w-sm overflow-hidden rounded-2xl border border-border shadow-[0_20px_60px_-32px_hsl(var(--foreground)/0.35)]">
-              <img
-                src={image}
-                alt={name}
-                className="w-full h-full object-cover"
-              />
+            <div className="relative mx-auto flex aspect-[3/4] w-full max-w-sm items-center justify-center overflow-hidden rounded-2xl border border-border bg-accent/5 shadow-[0_20px_60px_-32px_hsl(var(--foreground)/0.35)]">
+              {image ? (
+                <img
+                  src={image}
+                  alt={name}
+                  className="h-full w-full object-cover"
+                />
+              ) : (
+                <SearchCheck className="h-24 w-24 text-accent" aria-hidden="true" />
+              )}
             </div>
             {/* Rectangle badge in corner */}
             <div className="surface-card absolute -bottom-5 -right-3 rounded-lg px-5 py-3 shadow-md sm:right-4">

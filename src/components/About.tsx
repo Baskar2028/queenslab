@@ -36,7 +36,7 @@ const About = () => (
             what needs to work better.
           </p>
           <Link
-            to="/about"
+            to="/founder"
             className="mt-6 inline-flex min-h-10 items-center text-sm font-semibold text-accent transition-colors hover:text-foreground"
           >
             Meet the founder <span className="ml-2" aria-hidden="true">→</span>

@@ -116,7 +116,7 @@ const Pricing = ({ compact = false }: PricingProps) => (
             ))}
           </div>
 
-          {compact && (
+          {/* {compact && (
             <div className="mt-8 text-center">
               <Link
                 to="/pricing"
@@ -125,7 +125,7 @@ const Pricing = ({ compact = false }: PricingProps) => (
                 View pricing <ArrowUpRight className="h-4 w-4 text-accent" />
               </Link>
             </div>
-          )}
+          )} */}
         </div>
       </section>
     </div>

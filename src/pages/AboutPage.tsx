@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowUpRight, Bot, Code2, Workflow } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import founderImage from "@/assets/founder.jpeg";
 import PageMeta from "@/components/PageMeta";
 import { siteConfig } from "@/config/siteConfig";
@@ -59,10 +59,10 @@ const AboutPage = () => {
         <section className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
           <div className="order-2 max-w-2xl lg:order-1">
             <p className="font-mono-tech text-xs uppercase tracking-[0.18em] text-accent">
-              The person behind ATEXRA
+              
             </p>
             <h1             className="mt-4 font-heading text-3xl font-semibold tracking-tight sm:text-4xl">
-              Introducing Baskar
+              This is Baskar
             </h1>
             <p
               className="mt-4 min-h-14 font-heading text-xl font-medium text-accent sm:min-h-8 sm:text-2xl"
@@ -80,8 +80,7 @@ const AboutPage = () => {
               automation—guided by the needs of each project.
             </p>
             <a
-              href='/leaddeveloper'
-              target="_blank"
+              href="/founder"
               rel="noopener noreferrer"
               className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-xl bg-accent px-5 font-semibold text-accent-foreground transition-transform hover:-translate-y-0.5"
             >
@@ -111,44 +110,36 @@ const AboutPage = () => {
         </section>
 
         <section className="mx-auto mt-24 max-w-7xl border-t border-border pt-14 sm:mt-32">
-          <div className="max-w-3xl">
+          <div className="mx-auto max-w-5xl">
             <p className="font-mono-tech text-xs uppercase tracking-[0.18em] text-accent">
               What we do
             </p>
             <h2 className="mt-3 font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
               About ATEXRA
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-              ATEXRA provides modern web development, AI-integrated digital solutions, and
-              automation services. We focus on useful digital experiences that strengthen a
-              business’s online presence and improve workflows through technology chosen for the
-              job.
-            </p>
-          </div>
-          <div className="mt-9 grid gap-4 md:grid-cols-3">
-            {[
-              {
-                icon: Code2,
-                title: "Modern web",
-                text: "Websites and applications shaped around the people who use them.",
-              },
-              {
-                icon: Bot,
-                title: "Useful AI",
-                text: "AI integrations considered where they solve a real user or business need.",
-              },
-              {
-                icon: Workflow,
-                title: "Practical automation",
-                text: "Digital workflows designed to reduce repetitive work where appropriate.",
-              },
-            ].map(({ icon: Icon, title, text }) => (
-              <article key={title} className="surface-card rounded-2xl p-6 sm:p-7">
-                <Icon className="h-6 w-6 text-accent" aria-hidden="true" />
-                <h3 className="mt-5 font-heading text-lg font-semibold">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p>
-              </article>
-            ))}
+            <article className="surface-card mt-7 rounded-2xl border border-accent/15 bg-accent/[0.035] p-6 shadow-[0_18px_50px_-36px_hsl(var(--accent)/0.55)] sm:p-9 lg:p-12">
+              <p className="text-left text-base leading-8 text-muted-foreground sm:text-lg sm:leading-9">
+                <span className="font-semibold text-foreground">
+                  Atexra builds clear, modern digital solutions
+                </span>{" "}
+                that help businesses establish, strengthen, and grow their online presence in an
+                increasingly digital world. Our services include{" "}
+                <span className="font-semibold text-accent">professional website development</span>,{" "}
+                <span className="font-semibold text-accent">AI-powered chatbots</span>, and{" "}
+                <span className="font-semibold text-accent">intelligent automation solutions</span>,
+                designed to make businesses more accessible, efficient, and competitive. We combine
+                creativity, modern technologies, and practical problem-solving to develop digital
+                experiences that are not only visually appealing but also functional, user-friendly,
+                and scalable. From building a strong digital identity to simplifying everyday
+                business operations, improving customer engagement, and streamlining workflows, we
+                focus on delivering solutions that create real value.{" "}
+                <span className="font-semibold text-accent">
+                  Our goal is to turn ideas into meaningful digital experiences
+                </span>{" "}
+                that empower businesses to work smarter, connect better with their customers, and
+                achieve sustainable growth.
+              </p>
+            </article>
           </div>
         </section>
       </main>

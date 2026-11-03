@@ -4,7 +4,7 @@ import founderImg from "@/assets/founder.jpeg";
 const Founder = () => (
   <ProfilePage
     name="Baskar"
-    role="CEO & Developer"
+    role="Founder & CEO"
     image={founderImg}
     intro="Hi, I'm Baskar — an AI-Integrated Full Stack Developer and Cybersecurity Enthusiast passionate about building intelligent, secure, and scalable digital experiences.With a strong foundation in React.js, Flask, MySQL, and MongoDB, I combine modern web technologies with AI-driven capabilities to transform bold ideas into impactful digital products. I focus on creating seamless user experiences, solving real-world problems, and building solutions that empower businesses to innovate and grow.
 "
