@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { ArrowLeft, Phone, ArrowRight, SearchCheck } from "lucide-react";
 import { useEffect } from "react";
@@ -12,7 +13,14 @@ interface ProfilePageProps {
   paraThree: string;
 }
 
-const ProfilePage = ({ name, role, image, intro, paraTwo, paraThree }: ProfilePageProps) => {
+const ProfilePage = ({
+  name,
+  role,
+  image,
+  intro,
+  paraTwo,
+  paraThree,
+}: ProfilePageProps) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -29,47 +37,82 @@ const ProfilePage = ({ name, role, image, intro, paraTwo, paraThree }: ProfilePa
         </Link>
 
         <div className="grid items-start gap-12 lg:grid-cols-2">
-          {/* Image with badge */}
+
+          {/* Founder Image with Minimal Glowing Ring */}
           <div className="relative animate-fade-up">
-            <div className="relative mx-auto flex aspect-[3/4] w-full max-w-sm items-center justify-center overflow-hidden rounded-2xl border border-border bg-accent/5 shadow-[0_20px_60px_-32px_hsl(var(--foreground)/0.35)]">
-              {image ? (
-                <img
-                  src={image}
-                  alt={name}
-                  className="h-full w-full object-cover"
-                />
-              ) : (
-                <SearchCheck className="h-24 w-24 text-accent" aria-hidden="true" />
-              )}
+            <div className="group relative mx-auto w-full max-w-sm">
+
+              {/* Cyan glowing ring */}
+              <div
+                className="absolute -inset-[2px] rounded-[18px]
+                border border-accent/40
+                transition-all duration-500 ease-out
+                group-hover:border-accent
+                group-hover:shadow-[0_0_12px_hsl(var(--accent)/0.35),0_0_28px_hsl(var(--accent)/0.2)]"
+              />
+
+              {/* Image container */}
+              <div className="relative flex aspect-[3/4] w-full items-center justify-center overflow-hidden rounded-2xl border border-accent/20 bg-accent/5 p-1.5">
+
+                {image ? (
+                  <img
+                    src={image}
+                    alt={name}
+                    className="h-full w-full rounded-[13px] object-cover
+                    transition-transform duration-700 ease-out
+                    group-hover:scale-[1.02]"
+                  />
+                ) : (
+                  <SearchCheck
+                    className="h-24 w-24 text-accent"
+                    aria-hidden="true"
+                  />
+                )}
+              </div>
             </div>
-            {/* Rectangle badge in corner */}
+
+            {/* Founder badge */}
             <div className="surface-card absolute -bottom-5 -right-3 rounded-lg px-5 py-3 shadow-md sm:right-4">
-              <p className="font-mono-tech text-[10px] tracking-[0.2em] uppercase text-accent mb-0.5">{role}</p>
+              <p className="font-mono-tech text-[10px] tracking-[0.2em] uppercase text-accent mb-0.5">
+                {role}
+              </p>
               <p className="font-heading font-bold text-sm md:text-base text-foreground whitespace-nowrap">
-                of Atexra
+                {name} of Atexra
               </p>
             </div>
           </div>
 
-          {/* Text content */}
-          <div className="space-y-7 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          {/* Text Content */}
+          <div
+            className="space-y-7 animate-fade-up"
+            style={{ animationDelay: "0.2s" }}
+          >
             <div>
-              {/* <p className="font-mono-tech text-xs text-accent tracking-[0.3em] uppercase mb-3">// hello world</p> */}
               <h1 className="font-heading text-4xl md:text-5xl font-bold leading-tight">
-                This is  <span className="text-gradient accent-underline">{name}</span>
+                This is{" "}
+                <span className="text-gradient accent-underline">
+                  {name}
+                </span>
               </h1>
             </div>
 
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">{intro}</p>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
+              {intro}
+            </p>
 
             <div className="h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
 
-            <p className="text-muted-foreground text-base leading-relaxed text-justify">{paraTwo}</p>
+            <p className="text-muted-foreground text-base leading-relaxed text-justify">
+              {paraTwo}
+            </p>
 
             <div className="surface-card rounded-xl border-l-4 border-accent p-5">
-              <p className="text-foreground/90 text-base leading-relaxed italic text-justify">"{paraThree}"</p>
+              <p className="text-foreground/90 text-base leading-relaxed italic text-justify">
+                "{paraThree}"
+              </p>
             </div>
 
+            {/* Book a Call */}
             <div className="flex flex-wrap gap-4 pt-2">
               <a
                 href={siteConfig.bookCallUrl}
@@ -83,11 +126,6 @@ const ProfilePage = ({ name, role, image, intro, paraTwo, paraThree }: ProfilePa
               </a>
             </div>
           </div>
-        </div>
-
-        {/* Back home bottom right */}
-        <div className="mt-16 flex justify-end">
-          
         </div>
       </div>
     </div>
