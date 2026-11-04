@@ -33,7 +33,7 @@ const Footer = () => (
       {/* Navigation */}
       <div>
         <h2 className="font-heading text-sm font-semibold text-white">
-          Explore
+          
         </h2>
 
         <ul className="mt-3 grid grid-cols-2 gap-2 text-sm text-white/80">
