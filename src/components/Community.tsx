@@ -12,7 +12,7 @@ const members = [
     image: founderImg,
     href: "/about",
     desc: "Skilled in programming languages C, C++, Python, Java, JavaScript, React JS, MongoDB | frameworks: Tailwind CSS, Flask |  APIs,Linux.",
-    skills: ["C", "C++", "Python", "Java", "JavaScript",  "Nextjs","MongoDB", "Tailwind", "Flask", "APIs", "Linux"],
+    skills: ["C", "C++", "Python", "Java", "JavaScript","MongoDB", "Tailwind", "Flask", "APIs", "Linux"],
   },
   {
     name: "Deepak",
