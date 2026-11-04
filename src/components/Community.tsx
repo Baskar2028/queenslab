@@ -16,7 +16,7 @@ const members = [
   },
   {
     name: "Deepak",
-    role: "Developer",
+    role: "Developer & Public Speaker",
     image: developerImg,
     href: "/developer",
     desc: "Skilled in programming languages C, C++, Python, Java, and JavaScript, as well as React, MySQL, Flask, APIs, and Linux.",
