@@ -12,7 +12,7 @@ const members = [
     image: founderImg,
     href: "/about",
     desc: "Skilled in programming languages C, C++, Python, Java, JavaScript, React JS, APIs,Linux.",
-    skills: ["C", "C++", "Python", "Java", "JavaScript","React JS", "APIs", "Linux"],
+    skills: ["Public Speaking","C", "C++", "Python", "Java", "JavaScript","React JS", "APIs", "Linux"],
   },
   {
     name: "Deepak",
