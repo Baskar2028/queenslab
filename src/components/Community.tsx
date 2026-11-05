@@ -15,7 +15,7 @@ const members = [
     skills: ["Public Speaking","C", "C++", "Python", "Java", "JavaScript","React JS", "APIs", "Linux"],
   },
   {
-    name: "Deepak",
+    name: "Deepak L",
     role: "Developer & Public Speaker",
     image: developerImg,
     href: "/developer",
