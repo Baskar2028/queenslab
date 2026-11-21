@@ -12,7 +12,7 @@ const members = [
     image: founderImg,
     href: "/about",
     desc: "Skilled in programming languages C, C++, Python, Java, JavaScript, React JS, APIs,Linux.",
-    skills: ["Public Speaking","C", "C++", "Python", "Java", "JavaScript","React JS", "APIs", "Linux"],
+    skills: ["Public Speaking","C", "C++", "Python", "Java", "JavaScript","React JS","Flask","SQL","APIs", "Linux"],
   },
   {
     name: "Deepak ",
@@ -20,15 +20,15 @@ const members = [
     image: developerImg,
     href: "/developer",
     desc: "Skilled in programming languages C, C++, Python, Java, and JavaScript, as well as React, MySQL, Flask, APIs, and Linux.",
-    skills: ["C", "C++", "Python", "Java", "JavaScript", "React", "MySQL", "Flask", "APIs", "Linux"],
+    skills: ["C", "C++", "Python", "Java", "JavaScript", "React", "Firebase", "Node", "APIs", "Linux"],
   },
   {
     name: "Rishikesh Ragav",
-    role: "Supporter",
+    role: "Tester",
     image: cofounderImg,
     href: "/seo-specialist",
     desc: "Focused on helping websites improve their search visibility through technical SEO, on-page improvements, and content optimization.",
-    skills: ["Technical SEO", "On-page SEO", "Keyword Research", "Content"],
+    skills: ["Networking","Testing","Technical SEO", "On-page SEO", "Keyword Research", "Content"],
   },
 ];
 
