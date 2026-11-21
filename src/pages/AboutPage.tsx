@@ -74,7 +74,7 @@ const AboutPage = () => {
                 |
               </span>
             </p>
-            <p className="mt-7 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            <p className="mt-7 max-w-xl text-justify text-base leading-relaxed text-muted-foreground sm:text-lg">
               I build digital experiences that help businesses communicate clearly online. My work
               brings together modern web development, useful AI integrations, and practical
               automation—guided by the needs of each project.
@@ -118,7 +118,7 @@ const AboutPage = () => {
               About ATEXRA
             </h2>
             <article className="surface-card mt-7 rounded-2xl border border-accent/15 bg-accent/[0.035] p-6 shadow-[0_18px_50px_-36px_hsl(var(--accent)/0.55)] sm:p-9 lg:p-12">
-              <p className="text-left text-base leading-8 text-muted-foreground sm:text-lg sm:leading-9">
+              <p className="text-justify text-base leading-8 text-muted-foreground sm:text-lg sm:leading-9">
                 <span className="font-semibold text-foreground">
                   Atexra builds clear, modern digital solutions
                 </span>{" "}

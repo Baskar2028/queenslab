@@ -188,18 +188,18 @@ const Hero = () => (
         </div>
 
         <div className="hero-content-item mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs text-muted-foreground sm:text-sm">
-          <span className="inline-flex items-center gap-2">
+          {/* <span className="inline-flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             Website Development
-          </span>
+          </span> */}
           <span className="inline-flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-            AI Chatbots
+            Beyond the obvious
           </span>
-          <span className="inline-flex items-center gap-2">
+          {/* <span className="inline-flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             Business Automation
-          </span>
+          </span> */}
         </div>
       </div>
     </div>

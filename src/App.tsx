@@ -16,6 +16,7 @@ import NotFound from "./pages/NotFound.tsx";
 import Coo from "./pages/Coo.tsx";
 import SeoSpecialist from "./pages/SeoSpecialist.tsx";
 import AboutPage from "./pages/AboutPage.tsx";
+import AtexraLoader from "./components/AtexraLoader.tsx";
 import { useEffect, useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -105,6 +106,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <AtexraLoader />
       <BrowserRouter>
         <SiteLayout />
       </BrowserRouter>

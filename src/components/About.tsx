@@ -30,7 +30,7 @@ const About = () => (
           <h2 className="mt-3 font-heading text-3xl font-semibold tracking-tight sm:text-4xl">
             Technology, shaped around your business.
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-muted-foreground">
+          <p className="mt-5 text-justify text-base leading-relaxed text-muted-foreground">
             ATEXRA builds modern digital experiences and helps businesses explore AI and
             automation where they serve a clear purpose. Each project starts with understanding
             what needs to work better.
@@ -49,7 +49,7 @@ const About = () => (
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </span>
               <h3 className="mt-5 font-heading text-base font-semibold leading-snug">{title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
+              <p className="mt-2 text-justify text-sm leading-relaxed text-muted-foreground">{description}</p>
             </article>
           ))}
         </div>
