@@ -16,15 +16,15 @@ const members = [
   },
   {
     name: "Deepak ",
-    role: "Developer & Public Speaker",
+    role: "Co-Founder",
     image: developerImg,
     href: "/developer",
     desc: "Skilled in programming languages C, C++, Python, Java, and JavaScript, as well as React, MySQL, Flask, APIs, and Linux.",
     skills: ["C", "C++", "Python", "Java", "JavaScript", "React", "MySQL", "Flask", "APIs", "Linux"],
   },
   {
-    name: "SEO Optimizer",
-    role: "SEO Specialist",
+    name: "Rishikesh Ragav",
+    role: "Supporter",
     image: cofounderImg,
     href: "/seo-specialist",
     desc: "Focused on helping websites improve their search visibility through technical SEO, on-page improvements, and content optimization.",
