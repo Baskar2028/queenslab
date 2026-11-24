@@ -16,13 +16,17 @@ const socials = [
 
 interface ContactProps {
   standalone?: boolean;
+  homeSection?: boolean;
 }
 
-const Contact = ({ standalone = false }: ContactProps) => {
+const Contact = ({ standalone = false, homeSection = false }: ContactProps) => {
   const Heading = standalone ? "h1" : "h2";
 
   return (
-  <section id="contact" className="px-5 py-20 sm:px-8 sm:py-24">
+  <section
+    id="contact"
+    className={`px-5 sm:px-8 ${homeSection ? "py-12 sm:py-24" : "py-20 sm:py-24"}`}
+  >
     <div className="mx-auto max-w-6xl">
 
       {/* Section Heading */}
@@ -39,12 +43,12 @@ const Contact = ({ standalone = false }: ContactProps) => {
       </div>
 
       {/* Main Content */}
-      <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-stretch lg:gap-16">
+      <div className="contact-content-grid grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-stretch lg:gap-16">
 
         {/* Left Side */}
-        <div className="flex flex-col justify-between">
+        <div className="contact-main-content flex flex-col justify-between">
 
-          <div>
+          <div className="contact-info">
             <h3 className="font-heading text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
               Let&apos;s build something{" "}
               <span className="text-accent">premium.</span>
@@ -78,7 +82,7 @@ const Contact = ({ standalone = false }: ContactProps) => {
           </div>
 
           {/* Location */}
-          <div className="mt-12 inline-flex w-fit max-w-full flex-wrap items-center gap-3 rounded-full border border-border bg-card px-4 py-3 text-sm">
+          <div className="contact-location mt-12 inline-flex w-fit max-w-full flex-wrap items-center gap-3 rounded-full border border-border bg-card px-4 py-3 text-sm">
             <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-accent" />
 
             {/* <MapPin className="h-4 w-4 shrink-0 text-accent" /> */}
@@ -93,7 +97,7 @@ const Contact = ({ standalone = false }: ContactProps) => {
         </div>
 
         {/* Right Side - Agency Card */}
-        <aside className="surface-card rounded-2xl border border-border p-6 shadow-sm transition-all duration-300 hover:shadow-[0_24px_58px_-34px_hsl(var(--accent)/0.7)] sm:p-9">
+        <aside className="contact-agency surface-card rounded-2xl border border-border p-6 shadow-sm transition-all duration-300 hover:shadow-[0_24px_58px_-34px_hsl(var(--accent)/0.7)] sm:p-9">
 
           {/* Status */}
           <div className="flex items-center justify-between gap-4">

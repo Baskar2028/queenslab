@@ -9,7 +9,7 @@ import { faqQuestions, faqStructuredData } from "@/config/faq";
 import { Link } from "react-router-dom";
 
 const HomeFaq = () => (
-  <section id="faq" className="bg-background px-5 py-20 sm:px-8 sm:py-24">
+  <section id="faq" className="bg-background px-5 py-12 sm:px-8 sm:py-24">
     <script type="application/ld+json">{JSON.stringify(faqStructuredData)}</script>
     <div className="mx-auto max-w-4xl">
       <div className="mx-auto mb-10 max-w-3xl text-center">

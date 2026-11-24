@@ -32,12 +32,12 @@ const ProfilePage = ({
     <>
       <PageMeta page={page} />
       <main className="relative min-h-screen overflow-hidden bg-background">
-        <div className="relative container mx-auto max-w-6xl px-6 py-16 md:py-24">
+        <div className="relative container mx-auto max-w-6xl px-6 pt-24 pb-12 sm:py-16 md:py-24">
           <Link
             to="/"
-            className="group mb-10 inline-flex items-center gap-2 text-sm font-mono-tech text-muted-foreground transition-colors hover:text-accent"
+            className="group mb-6 inline-flex items-center gap-2 text-xs font-mono-tech text-muted-foreground transition-colors hover:text-accent sm:mb-10 sm:text-sm"
           >
-            <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+            <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-1 sm:h-4 sm:w-4" />
             Back to Home
           </Link>
 

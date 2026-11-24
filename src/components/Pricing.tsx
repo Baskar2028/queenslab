@@ -45,7 +45,10 @@ const Pricing = ({ compact = false }: PricingProps) => (
       />
     )}
     <div className={compact ? "" : "page-shell"}>
-      <section id="pricing" className="px-5 py-20 sm:px-8 sm:py-24">
+      <section
+        id="pricing"
+        className={`px-5 sm:px-8 ${compact ? "py-12 sm:py-24" : "py-20 sm:py-24"}`}
+      >
         <div className="mx-auto max-w-6xl">
           <div className="mx-auto max-w-3xl text-center">
             <p className="font-mono-tech text-xs uppercase tracking-[0.18em] text-accent">

@@ -303,6 +303,29 @@
     }
   }
 
+  @media (max-width: 639px) {
+    .contact-content-grid {
+      row-gap: 1.5rem;
+    }
+
+    .contact-main-content {
+      display: contents;
+    }
+
+    .contact-info {
+      order: 1;
+    }
+
+    .contact-agency {
+      order: 2;
+    }
+
+    .contact-location {
+      order: 3;
+      margin-top: 0;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .hero-aurora-glow,
     .hero-content-item {

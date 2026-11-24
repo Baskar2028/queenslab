@@ -46,7 +46,7 @@ const Community = () => {
   }, []);
 
   return (
-    <section id="community" className="py-24 px-6" ref={ref}>
+    <section id="community" className="py-12 px-6 sm:py-24" ref={ref}>
       <div className="container mx-auto max-w-6xl">
         <p className="font-mono-tech text-xs text-accent text-center tracking-[0.3em] uppercase mb-3">// community</p>
         <h2 className="text-2xl md:text-3xl font-heading font-semibold text-center mb-4">

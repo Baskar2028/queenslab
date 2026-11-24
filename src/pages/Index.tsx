@@ -16,7 +16,7 @@ const Index = () => {
       />
       <main>
         <Hero />
-        <section className="px-5 py-10 sm:px-8">
+        <section className="px-5 py-6 sm:px-8 sm:py-10">
           <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-5 rounded-2xl border border-accent/20 bg-accent/[0.055] p-6 sm:flex-row sm:items-center sm:p-9">
             <div>
               <p className="font-mono-tech text-xs uppercase tracking-[0.16em] text-accent">
@@ -38,7 +38,7 @@ const Index = () => {
         <HomeFaq />
         <Community />
         <Reviews />
-        <Contact />
+        <Contact homeSection />
       </main>
     </div>
   );

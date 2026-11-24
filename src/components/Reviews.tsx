@@ -8,7 +8,7 @@ const testimonial = {
 };
 
 const Reviews = () => (
-  <section id="reviews" className="bg-muted/30 px-5 py-20 sm:px-8 sm:py-24">
+  <section id="reviews" className="bg-muted/30 px-5 py-12 sm:px-8 sm:py-24">
     <div className="mx-auto max-w-6xl">
       <div className="mx-auto mb-10 max-w-2xl text-center">
         <p className="font-mono-tech text-xs uppercase tracking-[0.18em] text-accent">
