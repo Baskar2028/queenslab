@@ -1,10 +1,18 @@
 
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/leaddeveloper", "destination": "/founder", "permanent": true }
+  ],
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+    { "source": "/about", "destination": "/about/index.html" },
+    { "source": "/projects", "destination": "/projects/index.html" },
+    { "source": "/pricing", "destination": "/pricing/index.html" },
+    { "source": "/faq", "destination": "/faq/index.html" },
+    { "source": "/contact", "destination": "/contact/index.html" },
+    { "source": "/founder", "destination": "/founder/index.html" },
+    { "source": "/tester", "destination": "/tester/index.html" },
+    { "source": "/developer", "destination": "/developer/index.html" },
+    { "source": "/seo-specialist", "destination": "/seo-specialist/index.html" }
   ]
 }

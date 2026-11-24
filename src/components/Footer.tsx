@@ -28,6 +28,8 @@ const Footer = () => (
             ["Home", "/"],
             ["Projects", "/projects"],
             ["About", "/about"],
+            ["Pricing", "/pricing"],
+            ["FAQs", "/faq"],
             ["Contact", "/contact"],
           ].map(([label, href]) => (
             <li key={href}>

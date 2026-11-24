@@ -12,17 +12,17 @@ const letters = [
 
 const AtexraLoader = () => {
   const [visible, setVisible] = useState(true);
+  const [reduceMotion, setReduceMotion] = useState(false);
 
   useEffect(() => {
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const timeout = window.setTimeout(() => setVisible(false), reduceMotion ? 100 : 2150);
+    const shouldReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    setReduceMotion(shouldReduceMotion);
+    const timeout = window.setTimeout(() => setVisible(false), shouldReduceMotion ? 100 : 2150);
 
     return () => window.clearTimeout(timeout);
   }, []);
 
   if (!visible) return null;
-
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   return (
     <div

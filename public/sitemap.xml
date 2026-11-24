@@ -1,42 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://thequeenslab.vercel.app/</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <loc>https://atexra.vercel.app/</loc>
   </url>
-
   <url>
-    <loc>https://thequeenslab.vercel.app/about</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://atexra.vercel.app/about</loc>
   </url>
-
   <url>
-    <loc>https://thequeenslab.vercel.app/projects</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://atexra.vercel.app/projects</loc>
   </url>
-
   <url>
-    <loc>https://thequeenslab.vercel.app/pricing</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://atexra.vercel.app/pricing</loc>
   </url>
-
   <url>
-    <loc>https://thequeenslab.vercel.app/faq</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://atexra.vercel.app/faq</loc>
   </url>
-
   <url>
-    <loc>https://thequeenslab.vercel.app/contact</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://atexra.vercel.app/contact</loc>
   </url>
-
+  <url>
+    <loc>https://atexra.vercel.app/founder</loc>
+  </url>
+  <url>
+    <loc>https://atexra.vercel.app/tester</loc>
+  </url>
+  <url>
+    <loc>https://atexra.vercel.app/developer</loc>
+  </url>
+  <url>
+    <loc>https://atexra.vercel.app/seo-specialist</loc>
+  </url>
 </urlset>

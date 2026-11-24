@@ -21,11 +21,13 @@ import { useEffect, useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 const queryClient = new QueryClient();
+const useClientLayoutEffect =
+  typeof window === "undefined" ? useEffect : useLayoutEffect;
 
 const RouteMotion = () => {
   const location = useLocation();
 
-  useLayoutEffect(() => {
+  useClientLayoutEffect(() => {
     window.history.scrollRestoration = "manual";
     const root = document.documentElement;
     const previousScrollBehavior = root.style.scrollBehavior;
@@ -71,7 +73,7 @@ const RouteMotion = () => {
   return null;
 };
 
-const SiteLayout = () => {
+export const SiteLayout = () => {
   useEffect(() => {
     document.documentElement.classList.remove("dark");
     document.documentElement.style.colorScheme = "light";
@@ -101,14 +103,20 @@ const SiteLayout = () => {
   );
 };
 
+export const AppContent = () => (
+  <>
+    <Toaster />
+    <Sonner />
+    <AtexraLoader />
+    <SiteLayout />
+  </>
+);
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <AtexraLoader />
       <BrowserRouter>
-        <SiteLayout />
+        <AppContent />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

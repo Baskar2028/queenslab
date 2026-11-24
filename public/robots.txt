@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thequeenslab.vercel.app/sitemap.xml
+Sitemap: https://atexra.vercel.app/sitemap.xml

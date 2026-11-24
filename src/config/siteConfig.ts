@@ -1,4 +1,5 @@
 export const siteConfig = {
+  url: "https://atexra.vercel.app",
   bookCallUrl:
     "https://docs.google.com/forms/d/17YJBQXJHkfELS56bJmzXUW0pPLHzZm3K-cufoUu7-kE/edit",
   founderLinkedIn: "https://www.linkedin.com/in/baskar08/",

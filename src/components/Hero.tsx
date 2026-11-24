@@ -86,6 +86,11 @@ const HeroCodeBackground = () => {
     if (timerRef.current !== null) window.clearTimeout(timerRef.current);
     setVisibleChars(0);
 
+    if (window.matchMedia("(max-width: 767px)").matches) {
+      setVisibleChars(activeCode.length);
+      return;
+    }
+
     if (prefersReducedMotion) {
       setVisibleChars(activeCode.length);
       return;
@@ -164,8 +169,8 @@ const Hero = () => (
           <span className="text-glacier">grow.</span>
         </h1>
         <p className="hero-content-item mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-          Atexra creates modern websites for small businesses, with smart chatbots and automation
-          to make everyday work easier.
+          ATEXRA builds modern websites, AI chatbots and automation solutions for businesses in
+         Vaniyambadi, Thirupattur,Tamil Nadu and across India.
         </p>
 
         <div className="hero-content-item mt-9 flex flex-col justify-center gap-3 sm:flex-row">

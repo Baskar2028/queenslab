@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import founderImage from "@/assets/founder.jpeg";
 import PageMeta from "@/components/PageMeta";
 import { siteConfig } from "@/config/siteConfig";
@@ -52,8 +53,7 @@ const AboutPage = () => {
   return (
     <>
       <PageMeta
-        title="About"
-        description="Meet Baskar and learn about ATEXRA's modern web development, AI-integrated digital solutions, and automation services."
+        page="about"
       />
       <main className="page-shell px-5 sm:px-8">
         <section className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
@@ -61,8 +61,8 @@ const AboutPage = () => {
             <p className="font-mono-tech text-xs uppercase tracking-[0.18em] text-accent">
               
             </p>
-            <h1             className="mt-4 font-heading text-3xl font-semibold tracking-tight sm:text-4xl">
-              This is Baskar
+            <h1 className="mt-4 font-heading text-3xl font-semibold tracking-tight sm:text-4xl">
+              About ATEXRA and its founder
             </h1>
             <p
               className="mt-4 min-h-14 font-heading text-xl font-medium text-accent sm:min-h-8 sm:text-2xl"
@@ -79,14 +79,13 @@ const AboutPage = () => {
               brings together modern web development, useful AI integrations, and practical
               automation—guided by the needs of each project.
             </p>
-            <a
-              href="/founder"
-              rel="noopener noreferrer"
+            <Link
+              to="/founder"
               className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-xl bg-accent px-5 font-semibold text-accent-foreground transition-transform hover:-translate-y-0.5"
             >
               More About Founder
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-            </a>
+            </Link>
           </div>
 
           <div className="relative order-1 mx-auto w-full max-w-[470px] lg:order-2">
@@ -94,7 +93,7 @@ const AboutPage = () => {
             <div className="surface-card relative overflow-hidden rounded-[1.6rem] p-3">
               <img
                 src={founderImage}
-                alt="founder image"
+                alt="Baskar, founder of ATEXRA"
                 className="aspect-[4/5] w-full rounded-[1.1rem] object-cover object-center"
                 width={768}
                 height={960}
@@ -138,6 +137,8 @@ const AboutPage = () => {
                 </span>{" "}
                 that empower businesses to work smarter, connect better with their customers, and
                 achieve sustainable growth.
+                {" "}ATEXRA serves businesses in Tirupattur (Thirupattur), Vaniyambadi, across Tamil
+                Nadu and throughout India.
               </p>
             </article>
           </div>

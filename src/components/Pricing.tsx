@@ -41,8 +41,7 @@ const Pricing = ({ compact = false }: PricingProps) => (
   <>
     {!compact && (
       <PageMeta
-        title="Pricing"
-        description="Explore ATEXRA website package pricing. Pricing is available as simple starting plans for website development."
+        page="pricing"
       />
     )}
     <div className={compact ? "" : "page-shell"}>
@@ -52,9 +51,15 @@ const Pricing = ({ compact = false }: PricingProps) => (
             <p className="font-mono-tech text-xs uppercase tracking-[0.18em] text-accent">
               Simple Pricing
             </p>
-            <h1 className="mt-3 font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
-              Clear plans for your next step.
-            </h1>
+            {compact ? (
+              <h2 className="mt-3 font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
+                Clear plans for your next step.
+              </h2>
+            ) : (
+              <h1 className="mt-3 font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
+                Website development pricing
+              </h1>
+            )}
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               Clear starting prices for websites designed to strengthen your online presence and help your business grow.
             </p>

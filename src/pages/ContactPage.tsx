@@ -4,11 +4,10 @@ import PageMeta from "@/components/PageMeta";
 const ContactPage = () => (
   <>
     <PageMeta
-      title="Contact"
-      description="Contact ATEXRA to discuss modern website development, AI-integrated digital solutions, and business automation."
+      page="contact"
     />
     <main className="page-shell">
-      <Contact />
+      <Contact standalone />
     </main>
   </>
 );

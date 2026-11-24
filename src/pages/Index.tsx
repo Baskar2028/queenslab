@@ -12,8 +12,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <PageMeta
-        title="Intelligent Digital Solutions"
-        description="ATEXRA builds modern websites and web applications, integrates AI where it adds value, and helps businesses improve workflows with automation."
+        page="home"
       />
       <main>
         <Hero />

@@ -3,6 +3,7 @@ import cofounderImg from "@/assets/cofounder.png";
 
 const SeoSpecialist = () => (
   <ProfilePage
+    page="seoSpecialist"
     name="SEO Specialist"
     role="Search Engine Optimization"
     image={cofounderImg}

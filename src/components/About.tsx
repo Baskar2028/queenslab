@@ -31,9 +31,9 @@ const About = () => (
             Technology, shaped around your business.
           </h2>
           <p className="mt-5 text-justify text-base leading-relaxed text-muted-foreground">
-            ATEXRA builds modern digital experiences and helps businesses explore AI and
-            automation where they serve a clear purpose. Each project starts with understanding
-            what needs to work better.
+            ATEXRA is a website development company serving businesses in ,
+            Vaniyambadi,Tirupattur, Tamil Nadu and across India. Each project starts with understanding what
+            needs to work better, then considers web development, AI integration and automation.
           </p>
           <Link
             to="/founder"

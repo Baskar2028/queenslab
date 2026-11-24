@@ -5,76 +5,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
-const questions = [
-  {
-    question: "What services does Atexra offer?",
-    answer:
-      "Atexra provides professional website development, custom web applications, simple AI-powered chatbots, and business automation solutions. We help small businesses and startups establish and improve their digital presence.",
-  },
-  {
-    question: "How much does it cost to build a website for a small business?",
-    answer:
-      "Website development costs depend on your requirements, design, features, and complexity. Atexra provides solutions based on your business needs and budget. Contact us to discuss your project and receive a customized quote.",
-  },
-  {
-    question: "How long does it take to develop a business website?",
-    answer:
-      "Development time depends on the project's size and requirements. A standard business website may take a few days to a few weeks. We discuss the timeline before starting development.",
-  },
-  {
-    question: "Can Atexra build a custom website for my business?",
-    answer:
-      "Yes! We develop customized, responsive websites for businesses such as gyms, retail shops, gift stores, educational institutions, and startups. Each website is designed around your business identity and requirements.",
-  },
-  {
-    question: "Will my website work on mobile phones and tablets?",
-    answer:
-      "Yes. We build responsive websites that adapt to smartphones, tablets, laptops, and desktop screens to provide a consistent user experience.",
-  },
-  {
-    question: "Can I add an AI chatbot to my business website?",
-    answer:
-      "Yes. Atexra can integrate simple AI-powered chatbots into your website to help answer common customer questions, provide basic information, and improve customer interaction.",
-  },
-  {
-    question: "What is business automation, and how can it help my business?",
-    answer:
-      "Business automation uses software to reduce repetitive manual tasks. Depending on your requirements, Atexra can help automate processes such as customer enquiries, notifications, form submissions, and routine workflows, saving time and reducing manual effort.",
-  },
-  {
-    question: "Can I update my website content after development?",
-    answer:
-      "Yes. Depending on your project requirements, we can implement content management or admin features that allow you to manage products, content, enquiries, and other website information.",
-  },
-  {
-    question: "Does Atexra provide website maintenance and support?",
-    answer:
-      "Yes. We provide post-development support based on the agreed project scope. We can also discuss ongoing maintenance, updates, bug fixes, and improvements for your website.",
-  },
-  {
-    question: "How can I start a website development project with Atexra?",
-    answer:
-      "Getting started is simple. Contact Atexra through the Start a Project option, share your business requirements, and discuss your preferred features and budget. We will review your requirements and provide the next steps.",
-  },
-];
-
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: questions.map(({ question, answer }) => ({
-    "@type": "Question",
-    name: question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: answer,
-    },
-  })),
-};
+import { faqQuestions, faqStructuredData } from "@/config/faq";
+import { Link } from "react-router-dom";
 
 const HomeFaq = () => (
   <section id="faq" className="bg-background px-5 py-20 sm:px-8 sm:py-24">
-    <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
+    <script type="application/ld+json">{JSON.stringify(faqStructuredData)}</script>
     <div className="mx-auto max-w-4xl">
       <div className="mx-auto mb-10 max-w-3xl text-center">
         <p className="font-mono-tech text-xs uppercase tracking-[0.18em] text-accent">
@@ -90,7 +26,7 @@ const HomeFaq = () => (
       </div>
 
       <Accordion type="single" collapsible className="border-t border-border">
-        {questions.map(({ question, answer }, index) => (
+        {faqQuestions.map(({ question, answer }, index) => (
           <AccordionItem
             key={question}
             value={`home-faq-${index + 1}`}
@@ -114,6 +50,17 @@ const HomeFaq = () => (
           </AccordionItem>
         ))}
       </Accordion>
+      <div className="mt-7 flex flex-wrap items-center justify-between gap-4">
+        <p className="text-sm text-muted-foreground">
+          Need details about a project, updates or maintenance?
+        </p>
+        <Link
+          to="/faq"
+          className="inline-flex min-h-10 items-center text-sm font-semibold text-accent transition-colors hover:text-foreground"
+        >
+          View all FAQs <span className="ml-2" aria-hidden="true">→</span>
+        </Link>
+      </div>
     </div>
   </section>
 );

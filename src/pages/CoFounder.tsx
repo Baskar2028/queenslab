@@ -3,6 +3,7 @@ import cofounderImg from "@/assets/cofounder.png";
 
 const CoFounder = () => (
   <ProfilePage
+    page="tester"
     name="Rishikesh Ragav"
     role="Tester"
     image={cofounderImg}

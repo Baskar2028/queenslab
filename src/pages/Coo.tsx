@@ -3,6 +3,7 @@ import foundImg from "@/assets/Deepak.jpeg";
 
 const Coo = () => (
   <ProfilePage
+    page="developer"
     name="Deepak"
     role="Co-Founder"
     image={foundImg}

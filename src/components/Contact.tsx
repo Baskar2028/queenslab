@@ -14,7 +14,14 @@ const socials = [
   { icon: Mail, label: "Email", href: `mailto:${siteConfig.contactEmail}` },
 ];
 
-const Contact = () => (
+interface ContactProps {
+  standalone?: boolean;
+}
+
+const Contact = ({ standalone = false }: ContactProps) => {
+  const Heading = standalone ? "h1" : "h2";
+
+  return (
   <section id="contact" className="px-5 py-20 sm:px-8 sm:py-24">
     <div className="mx-auto max-w-6xl">
 
@@ -24,9 +31,9 @@ const Contact = () => (
           // CONTACT
         </p>
 
-        <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <Heading className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           Get In <span className="text-accent">Touch</span>
-        </h2>
+        </Heading>
 
         <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-accent" />
       </div>
@@ -44,9 +51,9 @@ const Contact = () => (
             </h3>
 
             <p className="mt-5 max-w-lg text-base leading-relaxed text-muted-foreground">
-              Reach out through any platform and our team will respond
-              within hours. We craft modern websites, smart chatbots,
-              and automation solutions that help your business grow worldwide.
+              Contact ATEXRA about web development, AI chatbot development, business automation,
+              website updates, maintenance or bug fixing. We work with businesses in 
+              , Vaniyambadi, Tamil Nadu and across India.
             </p>
 
             {/* Social Links */}
@@ -79,7 +86,7 @@ const Contact = () => (
             <span className="text-muted-foreground">
               Located in{" "}
               <span className="font-mono-tech font-semibold text-accent">
-               Thirupattur | Vaniyambadi
+                  Vaniyambadi | Thirupattur
               </span>
             </span>
           </div>
@@ -114,7 +121,7 @@ const Contact = () => (
 
           {/* Agency Details */}
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            We will reach you within fews hours after you filled our form
+            Share your project details and we can discuss the next steps.
           </p>
 
           {/* Established Information */}
@@ -146,6 +153,7 @@ const Contact = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default Contact;

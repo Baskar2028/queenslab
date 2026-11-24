@@ -3,6 +3,7 @@ import founderImg from "@/assets/founder.jpeg";
 
 const Founder = () => (
   <ProfilePage
+    page="founder"
     name="Baskar"
     role="Founder & CEO"
     image={founderImg}

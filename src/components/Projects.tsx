@@ -75,7 +75,7 @@ const projects: Project[] = [
     description: "A sample website offering for a fashion-focused project.",
     url: "https://fashionsite-one.vercel.app/",
     image: fashionimage,
-    imageAlt:""
+    imageAlt: "Website preview for the ATEXRA fashion website sample",
   },
   {
     id: "queens-gift-boutique",
@@ -84,7 +84,7 @@ const projects: Project[] = [
     description: "A sample website offering for a project named Queens Gift Boutique.",
     url: "https://queens-gift-boutique-main.vercel.app/",
     image: queensgift,
-    imageAlt:"Website Preview of Queens Gift Website"
+    imageAlt: "Website preview for Queens Gift Boutique",
   },
   {
     id: "ms-code-gym",
@@ -183,8 +183,7 @@ const Projects = () => {
   return (
     <>
       <PageMeta
-        title="Projects"
-        description="Explore ATEXRA's delivered work and sample offerings in web development, AI, and automation."
+        page="projects"
       />
       <main className="page-shell px-5 sm:px-8">
         <section className="mx-auto max-w-7xl">
@@ -193,7 +192,7 @@ const Projects = () => {
               Selected work & offerings
             </p>
             <h1 className="mt-3 font-heading text-4xl font-semibold tracking-tight sm:text-5xl">
-              Projects
+              Website development projects
             </h1>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
               A delivered project alongside examples of the kinds of digital experiences ATEXRA
